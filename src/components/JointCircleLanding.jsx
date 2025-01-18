@@ -124,7 +124,7 @@ const JointCircleLanding = () => {
             <div className="flex justify-between items-center h-22">
             <div className="flex items-center -ml-4">
               <img
-                src="/images/logo.jpg"
+                src="/joint-circle/logo.jpg"
                 alt="Joint Circle Logo"
                 className="h-28 w-auto object-contain transform scale-110"
               />
@@ -155,7 +155,7 @@ const JointCircleLanding = () => {
       <div className="relative h-screen">
         <div className="absolute inset-0 bg-neutral-800 bg-opacity-60">
           <img
-            src="/images/hero-bg.jpg"
+            src="/joint-circle/hero-bg.jpg"
             alt="Modern cityscape"
             className="w-full h-full object-cover"
           />
@@ -163,7 +163,7 @@ const JointCircleLanding = () => {
         <div className="relative h-full flex flex-col items-center justify-center text-white px-4">
           <div className="text-center mb-12 animate-on-scroll w-full max-w-4xl">
             <img
-              src="/images/logo.jpg"
+              src="/joint-circle/logo.jpg"
               alt="Joint Circle Logo"
               className="h-48 md:h-64 lg:h-96 w-auto mx-auto mb-12 object-contain"
             />
@@ -210,7 +210,7 @@ const JointCircleLanding = () => {
               </div>
             </div>
             <div className="relative animate-on-scroll">
-              <img src="/images/property1.jpg" alt="About Us" className="rounded-lg shadow-xl" />
+              <img src="/joint-circle/property1.jpg" alt="About Us" className="rounded-lg shadow-xl" />
               <div className="absolute -bottom-6 -right-6 bg-yellow-400 p-6 rounded-lg">
                 <p className="text-4xl font-bold">25+</p>
                 <p className="text-sm">Years of Excellence</p>
@@ -384,7 +384,7 @@ const JointCircleLanding = () => {
           <div className="grid md:grid-cols-4 gap-8">
             <div>
               <img
-                src="/images/logo.jpg"
+                src="/joint-circle/logo.jpg"
                 alt="Joint Circle Logo"
                 className="h-16 w-auto object-contain mb-4"
               />
