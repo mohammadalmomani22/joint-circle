@@ -181,44 +181,50 @@ const JointCircleLanding = () => {
         </div>
       </div>
 
-      {/* ABOUT SECTION */}
-      <section id="about" className="py-20 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="animate-on-scroll">
-              <h2 className="text-4xl font-bold mb-6 text-neutral-800">
-                Building Kuwait’s Future Since 1998
-              </h2>
-              <p className="text-lg text-neutral-600 mb-6">
-                As a leading construction company in Kuwait, we've been at the forefront
-                of architectural innovation and urban development for over two decades.
-                Our commitment to excellence and sustainable building practices has made
-                us a trusted partner in Kuwait's growth story.
-              </p>
-              <div className="space-y-4">
-                {[
-                  'ISO 9001:2015 Certified',
-                  'Award-winning projects across Kuwait',
-                  'Sustainable building practices',
-                  'State-of-the-art technology',
-                ].map((item, index) => (
-                  <div key={index} className="flex items-center space-x-2">
-                    <CheckCircle2 className="text-yellow-400 h-5 w-5" />
-                    <span className="text-neutral-700">{item}</span>
-                  </div>
-                ))}
-              </div>
+{/* ABOUT SECTION */}
+<section id="about" className="py-20 px-4 bg-white">
+  <div className="max-w-7xl mx-auto">
+    <div className="grid md:grid-cols-2 gap-12 items-center">
+      <div className="animate-on-scroll">
+        <h2 className="text-4xl font-bold mb-6 text-neutral-800">
+          Building Kuwait's Future Since 1998
+        </h2>
+        <p className="text-lg text-neutral-600 mb-6">
+          As a leading construction company in Kuwait, we've been at the forefront
+          of architectural innovation and urban development for over two decades.
+          Our commitment to excellence and sustainable building practices has made
+          us a trusted partner in Kuwait's growth story.
+        </p>
+        <div className="space-y-4">
+          {[
+            'ISO 9001:2015 Certified',
+            'Award-winning projects across Kuwait',
+            'Sustainable building practices',
+            'State-of-the-art technology',
+          ].map((item, index) => (
+            <div key={index} className="flex items-center space-x-2">
+              <CheckCircle2 className="text-yellow-400 h-5 w-5" />
+              <span className="text-neutral-700">{item}</span>
             </div>
-            <div className="relative animate-on-scroll">
-              <img src="/joint-circle/property1.jpg" alt="About Us" className="rounded-lg shadow-xl" />
-              <div className="absolute -bottom-6 -right-6 bg-yellow-400 p-6 rounded-lg">
-                <p className="text-4xl font-bold">25+</p>
-                <p className="text-sm">Years of Excellence</p>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
-      </section>
+      </div>
+      <div className="relative animate-on-scroll">
+        <div className="rounded-lg overflow-hidden shadow-xl">
+          <img 
+            src="/joint-circle/images/property1.jpg" 
+            alt="About Us" 
+            className="w-full h-full object-cover transform transition-transform duration-500 hover:scale-105"
+          />
+        </div>
+        <div className="absolute -bottom-6 -right-6 bg-yellow-400 p-6 rounded-lg shadow-lg">
+          <p className="text-4xl font-bold">25+</p>
+          <p className="text-sm font-medium">Years of Excellence</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
 
       {/* STATS */}
       <section className="py-16 bg-neutral-800">
