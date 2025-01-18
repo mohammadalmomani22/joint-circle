@@ -79,18 +79,18 @@ const JointCircleLanding = () => {
       title: 'Residential Construction',
       description:
         'Luxury villas, apartment complexes, and custom homes built to the highest standards of quality and design.',
-      image: '/images/property1.jpg',
+      image: '/joint-circle/images/property1.jpg',
     },
     {
       title: 'Commercial Projects',
       description:
         'Office buildings, shopping centers, and mixed-use developments that define Kuwait’s modern skyline.',
-      image: '/images/property2.jpg',
+      image: '/joint-circle/images/property2.jpg',
     },
     {
       title: 'Infrastructure Development',
       description: 'Roads, bridges, and public facilities contributing to Kuwait’s growing infrastructure.',
-      image: '/images/property3.jpg',
+      image: '/joint-circle/images/property3.jpg',
     },
   ];
 
@@ -100,19 +100,19 @@ const JointCircleLanding = () => {
       title: 'Kuwait Business Tower',
       category: 'Commercial',
       location: 'Kuwait City',
-      image: '/images/property1.jpg',
+      image: '/joint-circle/images/property1.jpg',
     },
     {
       title: 'Luxury Villa Complex',
       category: 'Residential',
       location: 'Salmiya',
-      image: '/images/property2.jpg',
+      image: '/joint-circle/images/property2.jpg',
     },
     {
       title: 'Modern Shopping Center',
       category: 'Retail',
       location: 'Al Jahra',
-      image: '/images/property3.jpg',
+      image: '/joint-circle/images/property3.jpg',
     },
   ];
 
@@ -251,21 +251,21 @@ const JointCircleLanding = () => {
             price: 'KWD 1,200,000',
             location: 'Kuwait City',
             specs: '4 Beds • 5 Baths • 450 sqm',
-            image: '/images/property1.jpg'
+            image: '/joint-circle/images/property1.jpg'
             },
             {
             title: 'Beachfront Villa',
             price: 'KWD 950,000',
             location: 'Salmiya',
             specs: '6 Beds • 7 Baths • 600 sqm',
-            image: '/images/property2.jpg'
+            image: '/joint-circle/images/property2.jpg'
             },
             {
             title: 'Modern Apartment',
             price: 'KWD 380,000',
             location: 'Al Jahra',
             specs: '3 Beds • 3 Baths • 200 sqm',
-            image: '/images/property3.jpg'
+            image: '/joint-circle/images/property3.jpg'
             }
         ].map((property, index) => (
             <div 
