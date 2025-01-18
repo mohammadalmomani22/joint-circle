@@ -124,7 +124,7 @@ const JointCircleLanding = () => {
             <div className="flex justify-between items-center h-22">
             <div className="flex items-center -ml-4">
               <img
-                src="/joint-circle/logo.jpg"
+                src="/joint-circle/images/logo.jpg"
                 alt="Joint Circle Logo"
                 className="h-28 w-auto object-contain transform scale-110"
               />
@@ -163,7 +163,7 @@ const JointCircleLanding = () => {
         <div className="relative h-full flex flex-col items-center justify-center text-white px-4">
           <div className="text-center mb-12 animate-on-scroll w-full max-w-4xl">
             <img
-              src="/joint-circle/logo.jpg"
+              src="/joint-circle/images/logo.jpg"
               alt="Joint Circle Logo"
               className="h-48 md:h-64 lg:h-96 w-auto mx-auto mb-12 object-contain"
             />
@@ -384,7 +384,7 @@ const JointCircleLanding = () => {
           <div className="grid md:grid-cols-4 gap-8">
             <div>
               <img
-                src="/joint-circle/logo.jpg"
+                src="/joint-circle/images/logo.jpg"
                 alt="Joint Circle Logo"
                 className="h-16 w-auto object-contain mb-4"
               />
