@@ -155,7 +155,7 @@ const JointCircleLanding = () => {
       <div className="relative h-screen">
         <div className="absolute inset-0 bg-neutral-800 bg-opacity-60">
           <img
-            src="/joint-circle/hero-bg.jpg"
+            src="/joint-circle/images/hero-bg.jpg"
             alt="Modern cityscape"
             className="w-full h-full object-cover"
           />
