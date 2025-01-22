@@ -16,6 +16,251 @@ import {
 
 const JointCircleLanding = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+  const [language, setLanguage] = React.useState('en'); // Language state
+
+  // Translations object
+  const translations = {
+    en: {
+      nav: {
+        buy: 'Buy',
+        projects: 'Projects',
+        about: 'About',
+        contact: 'Contact'
+      },
+      hero: {
+        searchPlaceholder: 'Your keyword'
+      },
+      about: {
+        title: "Building Kuwait's Future Since 1998",
+        description:
+          "As a leading construction company in Kuwait, we've been at the forefront of architectural innovation and urban development for over two decades...",
+        features: [
+          'ISO 9001:2015 Certified',
+          'Award-winning projects across Kuwait',
+          'Sustainable building practices',
+          'State-of-the-art technology'
+        ],
+        yearsExcellence: 'Years of Excellence'
+      },
+      stats: {
+        projectsCompleted: 'Projects Completed',
+        happyClients: 'Happy Clients',
+        yearsExperience: 'Years Experience',
+        expertWorkers: 'Expert Workers'
+      },
+      properties: {
+        title: 'Premium Properties',
+        description:
+          "Discover our exclusive collection of premium properties in Kuwait's most sought-after locations.",
+        properties: [
+          {
+            title: 'Luxury Penthouse',
+            price: 'KWD 1,200,000',
+            location: 'Kuwait City',
+            specs: '4 Beds • 5 Baths • 450 sqm',
+            image: '/joint-circle/images/property1.jpg'
+          },
+          {
+            title: 'Beachfront Villa',
+            price: 'KWD 950,000',
+            location: 'Salmiya',
+            specs: '6 Beds • 7 Baths • 600 sqm',
+            image: '/joint-circle/images/property2.jpg'
+          },
+          {
+            title: 'Modern Apartment',
+            price: 'KWD 380,000',
+            location: 'Al Jahra',
+            specs: '3 Beds • 3 Baths • 200 sqm',
+            image: '/joint-circle/images/property3.jpg'
+          }
+        ]
+      },
+      projects: {
+        title: 'Featured Projects',
+        description:
+          "Discover our landmark projects that have shaped Kuwait's architectural landscape.",
+        projects: [
+          {
+            category: 'Commercial',
+            title: 'Kuwait Business Tower',
+            location: 'Kuwait City',
+            image: '/joint-circle/images/property1.jpg'
+          },
+          {
+            category: 'Residential',
+            title: 'Luxury Villa Complex',
+            location: 'Salmiya',
+            image: '/joint-circle/images/property2.jpg'
+          },
+          {
+            category: 'Retail',
+            title: 'Modern Shopping Center',
+            location: 'Al Jahra',
+            image: '/joint-circle/images/property3.jpg'
+          }
+        ]
+      },
+      contact: {
+        title: 'Get in Touch',
+        description:
+          "Connect with Kuwait's premier construction and real estate development company",
+        contactMethods: [
+          {
+            icon: <Phone className="h-8 w-8" />,
+            title: 'Call Us',
+            info: ['+965 2234 5678', '+965 2234 5679'],
+            action: 'Available 24/7'
+          },
+          {
+            icon: <Mail className="h-8 w-8" />,
+            title: 'Email Us',
+            info: ['info@jointcircle.com', 'support@jointcircle.com'],
+            action: 'We reply within 24 hours'
+          },
+          {
+            icon: <MapPin className="h-8 w-8" />,
+            title: 'Visit Us',
+            info: ['Kuwait City, Kuwait', 'Business District'],
+            action: 'Open Sunday-Thursday'
+          }
+        ]
+      },
+      footer: {
+        quickLinks: ['About', 'Projects', 'Properties', 'Contact'],
+        quickLinksHref: ['about', 'projects', 'properties', 'contact'],
+        companyInfo:
+          'Building excellence, delivering innovation, and shaping Kuwait\'s future through quality construction.',
+        contactInfo: {
+          phone: '+965 2234 5678',
+          email: 'info@jointcircle.com',
+          address: 'Kuwait City, Kuwait'
+        },
+        rights: '© 2025 Joint Circle. All rights reserved.'
+      },
+      languageToggle: 'العربية'
+    },
+    ar: {
+      nav: {
+        buy: 'شراء',
+        projects: 'المشاريع',
+        about: 'عن الشركة',
+        contact: 'اتصل بنا'
+      },
+      hero: {
+        searchPlaceholder: 'ابحث هنا'
+      },
+      about: {
+        title: 'نبني مستقبل الكويت منذ عام 1998',
+        description:
+          'كشركة رائدة في مجال البناء في الكويت، كنا في طليعة الابتكار المعماري والتطوير الحضري لأكثر من عقدين...',
+        features: [
+          'حاصلون على شهادة ISO 9001:2015',
+          'مشاريع حائزة على جوائز في الكويت',
+          'ممارسات بناء مستدامة',
+          'تكنولوجيا متطورة'
+        ],
+        yearsExcellence: 'سنوات من التميز'
+      },
+      stats: {
+        projectsCompleted: 'مشاريع مكتملة',
+        happyClients: 'عملاء سعداء',
+        yearsExperience: 'سنوات الخبرة',
+        expertWorkers: 'عمال خبراء'
+      },
+      properties: {
+        title: 'عقارات مميزة',
+        description:
+          'اكتشف مجموعتنا الحصرية من العقارات المميزة في أكثر المواقع طلباً في الكويت.',
+        properties: [
+          {
+            title: 'بنتهاوس فاخر',
+            price: 'د.ك 1,200,000',
+            location: 'مدينة الكويت',
+            specs: '4 غرف نوم • 5 حمامات • 450 م²',
+            image: '/joint-circle/images/property1.jpg'
+          },
+          {
+            title: 'فيلا على الواجهة البحرية',
+            price: 'د.ك 950,000',
+            location: 'السالمية',
+            specs: '6 غرف نوم • 7 حمامات • 600 م²',
+            image: '/joint-circle/images/property2.jpg'
+          },
+          {
+            title: 'شقة حديثة',
+            price: 'د.ك 380,000',
+            location: 'الجهراء',
+            specs: '3 غرف نوم • 3 حمامات • 200 م²',
+            image: '/joint-circle/images/property3.jpg'
+          }
+        ]
+      },
+      projects: {
+        title: 'المشاريع المميزة',
+        description:
+          'اكتشف مشاريعنا البارزة التي شكلت المشهد المعماري للكويت.',
+        projects: [
+          {
+            category: 'تجاري',
+            title: 'برج الكويت للأعمال',
+            location: 'مدينة الكويت',
+            image: '/joint-circle/images/property1.jpg'
+          },
+          {
+            category: 'سكني',
+            title: 'مجمع فيلات فاخر',
+            location: 'السالمية',
+            image: '/joint-circle/images/property2.jpg'
+          },
+          {
+            category: 'تجزئة',
+            title: 'مركز تسوق حديث',
+            location: 'الجهراء',
+            image: '/joint-circle/images/property3.jpg'
+          }
+        ]
+      },
+      contact: {
+        title: 'تواصل معنا',
+        description:
+          'تواصل مع شركة الكويت الرائدة في البناء وتطوير العقارات',
+        contactMethods: [
+          {
+            icon: <Phone className="h-8 w-8" />,
+            title: 'اتصل بنا',
+            info: ['+965 2234 5678', '+965 2234 5679'],
+            action: 'متاح 24/7'
+          },
+          {
+            icon: <Mail className="h-8 w-8" />,
+            title: 'راسلنا',
+            info: ['info@jointcircle.com', 'support@jointcircle.com'],
+            action: 'نرد خلال 24 ساعة'
+          },
+          {
+            icon: <MapPin className="h-8 w-8" />,
+            title: 'زرنا',
+            info: ['مدينة الكويت، الكويت', 'الحي التجاري'],
+            action: 'مفتوح من الأحد إلى الخميس'
+          }
+        ]
+      },
+      footer: {
+        quickLinks: ['عن الشركة', 'المشاريع', 'العقارات', 'اتصل بنا'],
+        quickLinksHref: ['about', 'projects', 'properties', 'contact'],
+        companyInfo:
+          'نبني التميز، ونقدم الابتكار، ونشكل مستقبل الكويت من خلال البناء عالي الجودة.',
+        contactInfo: {
+          phone: '+965 2234 5678',
+          email: 'info@jointcircle.com',
+          address: 'مدينة الكويت، الكويت'
+        },
+        rights: '© 2025 الدائرة المشتركة. جميع الحقوق محفوظة.'
+      },
+      languageToggle: 'English'
+    }
+  };
 
   useEffect(() => {
     // 1) Intersection Observer for fade-in animations
@@ -30,9 +275,7 @@ const JointCircleLanding = () => {
       { threshold: 0.1 }
     );
 
-    document
-      .querySelectorAll('.animate-on-scroll')
-      .forEach((el) => observer.observe(el));
+    document.querySelectorAll('.animate-on-scroll').forEach((el) => observer.observe(el));
 
     // 2) Smooth scroll with offset for anchor links
     document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
@@ -44,8 +287,7 @@ const JointCircleLanding = () => {
         if (targetElement) {
           const navbarHeight = 96; // Height of your fixed navbar (h-24 = 96px)
           const targetPosition = targetElement.getBoundingClientRect().top;
-          const offsetPosition =
-            targetPosition + window.pageYOffset - navbarHeight;
+          const offsetPosition = targetPosition + window.pageYOffset - navbarHeight;
 
           window.scrollTo({
             top: offsetPosition,
@@ -62,68 +304,47 @@ const JointCircleLanding = () => {
     return () => {
       observer.disconnect();
     };
-  }, []);
+  }, [language]); // Re-run effect when language changes to update event listeners
 
   // Navigation links
   const navLinks = [
-    { name: 'Buy', section: 'properties' },
-    { name: 'Projects', section: 'projects' },
-    { name: 'Services', section: 'services' },
-    { name: 'About', section: 'about' },
-    { name: 'Contact', section: 'contact' }
+    { name: 'buy', section: 'properties' },
+    { name: 'projects', section: 'projects' },
+    { name: 'about', section: 'about' },
+    { name: 'contact', section: 'contact' }
   ];
 
   // Sample stats
   const stats = [
     {
-      icon: <Building2 className="h-8 w-8" />,
+      key: 'projectsCompleted',
       value: '500+',
-      label: 'Projects Completed'
+      icon: <Building2 className="h-12 w-12 text-yellow-400" />
     },
     {
-      icon: <Users className="h-8 w-8" />,
+      key: 'happyClients',
       value: '1000+',
-      label: 'Happy Clients'
+      icon: <Users className="h-12 w-12 text-yellow-400" />
     },
     {
-      icon: <Award className="h-8 w-8" />,
+      key: 'yearsExperience',
       value: '25+',
-      label: 'Years Experience'
+      icon: <Award className="h-12 w-12 text-yellow-400" />
     },
     {
-      icon: <Hammer className="h-8 w-8" />,
+      key: 'expertWorkers',
       value: '300+',
-      label: 'Expert Workers'
+      icon: <Hammer className="h-12 w-12 text-yellow-400" />
     }
   ];
 
-  // Sample services (if needed)
-  // const services = [...];
-
-  // Sample projects
-  const projects = [
-    {
-      title: 'Kuwait Business Tower',
-      category: 'Commercial',
-      location: 'Kuwait City',
-      image: '/joint-circle/images/property1.jpg'
-    },
-    {
-      title: 'Luxury Villa Complex',
-      category: 'Residential',
-      location: 'Salmiya',
-      image: '/joint-circle/images/property2.jpg'
-    },
-    {
-      title: 'Modern Shopping Center',
-      category: 'Retail',
-      location: 'Al Jahra',
-      image: '/joint-circle/images/property3.jpg'
-    }
-  ];
+  // Handle language toggle
+  const toggleLanguage = () => {
+    setLanguage(language === 'en' ? 'ar' : 'en');
+  };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className={`min-h-screen bg-white ${language === 'ar' ? 'rtl' : 'ltr'}`}>
       {/* NAVIGATION */}
       <nav className="fixed w-full bg-opacity-90 bg-neutral-800 text-white z-50">
         <div className="max-w-7xl mx-auto px-4">
@@ -138,24 +359,22 @@ const JointCircleLanding = () => {
             </div>
 
             {/* Desktop Menu */}
-            <div className="hidden md:flex space-x-8">
+            <div className="hidden md:flex items-center space-x-8">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={`#${link.section}`}
                   className="text-gray-300 hover:text-yellow-400 transition-colors duration-200"
                 >
-                  {link.name}
+                  {translations[language].nav[link.name]}
                 </a>
               ))}
-            </div>
-
-            {/* Desktop Buttons */}
-            <div className="hidden md:flex items-center space-x-4">
-              <button className="text-gray-300 hover:text-yellow-400">AED</button>
-              <button className="text-gray-300 hover:text-yellow-400">Login</button>
-              <button className="bg-yellow-400 text-neutral-800 px-4 py-2 rounded hover:bg-yellow-500 transition-colors duration-200">
-                List Your Property
+              {/* Language Toggle Button */}
+              <button
+                onClick={toggleLanguage}
+                className="ml-4 text-gray-300 hover:text-yellow-400 transition-colors duration-200"
+              >
+                {translations[language].languageToggle}
               </button>
             </div>
 
@@ -177,20 +396,19 @@ const JointCircleLanding = () => {
                   href={`#${link.section}`}
                   className="block px-3 py-2 text-base text-gray-300 hover:text-yellow-400 transition-colors duration-200"
                 >
-                  {link.name}
+                  {translations[language].nav[link.name]}
                 </a>
               ))}
-              <div className="border-t border-gray-700 mt-4 pt-4 space-y-2">
-                <button className="block w-full text-left px-3 py-2 text-base text-gray-300 hover:text-yellow-400">
-                  AED
-                </button>
-                <button className="block w-full text-left px-3 py-2 text-base text-gray-300 hover:text-yellow-400">
-                  Login
-                </button>
-                <button className="block w-full px-3 py-2 text-base bg-yellow-400 text-neutral-800 rounded hover:bg-yellow-500 transition-colors duration-200">
-                  List Your Property
-                </button>
-              </div>
+              {/* Language Toggle Button for Mobile */}
+              <button
+                onClick={() => {
+                  toggleLanguage();
+                  setIsMobileMenuOpen(false);
+                }}
+                className="block w-full text-left px-3 py-2 text-base text-gray-300 hover:text-yellow-400 transition-colors duration-200"
+              >
+                {translations[language].languageToggle}
+              </button>
             </div>
           </div>
         </div>
@@ -219,10 +437,14 @@ const JointCircleLanding = () => {
             <div className="relative">
               <input
                 type="text"
-                placeholder="Your keyword"
+                placeholder={translations[language].hero.searchPlaceholder}
                 className="w-full px-6 py-4 rounded-lg bg-white bg-opacity-90 text-neutral-800 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-yellow-400"
               />
-              <Search className="absolute right-4 top-1/2 transform -translate-y-1/2 text-neutral-500" />
+              <Search
+                className={`absolute ${
+                  language === 'ar' ? 'left-4' : 'right-4'
+                } top-1/2 transform -translate-y-1/2 text-neutral-500`}
+              />
             </div>
           </div>
         </div>
@@ -234,19 +456,13 @@ const JointCircleLanding = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="animate-on-scroll">
               <h2 className="text-3xl md:text-4xl font-bold mb-4 md:mb-6 text-neutral-800">
-                Building Kuwait's Future Since 1998
+                {translations[language].about.title}
               </h2>
               <p className="text-base md:text-lg text-neutral-600 mb-4 md:mb-6">
-                As a leading construction company in Kuwait, we've been at the forefront
-                of architectural innovation and urban development for over two decades...
+                {translations[language].about.description}
               </p>
               <div className="space-y-4">
-                {[
-                  'ISO 9001:2015 Certified',
-                  'Award-winning projects across Kuwait',
-                  'Sustainable building practices',
-                  'State-of-the-art technology'
-                ].map((item, index) => (
+                {translations[language].about.features.map((item, index) => (
                   <div key={index} className="flex items-center space-x-2">
                     <CheckCircle2 className="text-yellow-400 h-5 w-5" />
                     <span className="text-neutral-700">{item}</span>
@@ -264,7 +480,9 @@ const JointCircleLanding = () => {
               </div>
               <div className="absolute -bottom-6 -right-6 bg-yellow-400 p-6 rounded-lg shadow-lg">
                 <p className="text-4xl font-bold">25+</p>
-                <p className="text-sm font-medium">Years of Excellence</p>
+                <p className="text-sm font-medium">
+                  {translations[language].about.yearsExcellence}
+                </p>
               </div>
             </div>
           </div>
@@ -277,11 +495,13 @@ const JointCircleLanding = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
               <div key={index} className="text-center animate-on-scroll">
-                <div className="text-yellow-400 mb-4 flex justify-center">
-                  {stat.icon}
+                <div className="mb-6 flex justify-center">{stat.icon}</div>
+                <div className="text-4xl font-bold text-yellow-400 mb-3">
+                  {stat.value}
                 </div>
-                <div className="text-3xl font-bold text-white mb-2">{stat.value}</div>
-                <div className="text-gray-400">{stat.label}</div>
+                <div className="text-gray-400 text-lg">
+                  {translations[language].stats[stat.key]}
+                </div>
               </div>
             ))}
           </div>
@@ -293,38 +513,15 @@ const JointCircleLanding = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 md:mb-6 text-neutral-800">
-              Premium Properties
+              {translations[language].properties.title}
             </h2>
             <p className="text-base md:text-lg text-neutral-600 max-w-3xl mx-auto">
-              Discover our exclusive collection of premium properties in Kuwait's most
-              sought-after locations.
+              {translations[language].properties.description}
             </p>
           </div>
           {/* Responsive grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {[
-              {
-                title: 'Luxury Penthouse',
-                price: 'KWD 1,200,000',
-                location: 'Kuwait City',
-                specs: '4 Beds • 5 Baths • 450 sqm',
-                image: '/joint-circle/images/property1.jpg'
-              },
-              {
-                title: 'Beachfront Villa',
-                price: 'KWD 950,000',
-                location: 'Salmiya',
-                specs: '6 Beds • 7 Baths • 600 sqm',
-                image: '/joint-circle/images/property2.jpg'
-              },
-              {
-                title: 'Modern Apartment',
-                price: 'KWD 380,000',
-                location: 'Al Jahra',
-                specs: '3 Beds • 3 Baths • 200 sqm',
-                image: '/joint-circle/images/property3.jpg'
-              }
-            ].map((property, index) => (
+            {translations[language].properties.properties.map((property, index) => (
               <div
                 key={index}
                 className="group bg-white rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-2xl"
@@ -335,7 +532,11 @@ const JointCircleLanding = () => {
                     alt={property.title}
                     className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110"
                   />
-                  <div className="absolute top-4 right-4 bg-yellow-400 text-neutral-800 px-4 py-2 rounded-full">
+                  <div
+                    className={`absolute top-4 ${
+                      language === 'ar' ? 'left-4' : 'right-4'
+                    } bg-yellow-400 text-neutral-800 px-4 py-2 rounded-full`}
+                  >
                     {property.price}
                   </div>
                 </div>
@@ -344,7 +545,11 @@ const JointCircleLanding = () => {
                     {property.title}
                   </h3>
                   <div className="flex items-center text-neutral-600 mb-3">
-                    <MapPin className="h-5 w-5 mr-2 text-yellow-400" />
+                    <MapPin
+                      className={`h-5 w-5 ${
+                        language === 'ar' ? 'ml-2' : 'mr-2'
+                      } text-yellow-400`}
+                    />
                     {property.location}
                   </div>
                   <div className="text-neutral-600 border-t pt-4 mt-4">
@@ -362,15 +567,14 @@ const JointCircleLanding = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 md:mb-6 text-neutral-800">
-              Featured Projects
+              {translations[language].projects.title}
             </h2>
             <p className="text-base md:text-lg text-neutral-600 max-w-3xl mx-auto">
-              Discover our landmark projects that have shaped Kuwait's architectural
-              landscape.
+              {translations[language].projects.description}
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {projects.map((project, index) => (
+            {translations[language].projects.projects.map((project, index) => (
               <div
                 key={index}
                 className="group relative overflow-hidden rounded-lg shadow-lg animate-on-scroll"
@@ -401,39 +605,23 @@ const JointCircleLanding = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 md:mb-6 text-neutral-800">
-              Get in Touch
+              {translations[language].contact.title}
             </h2>
             <p className="text-base md:text-lg text-neutral-600 max-w-3xl mx-auto">
-              Connect with Kuwait's premier construction and real estate
-              development company
+              {translations[language].contact.description}
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {[
-              {
-                icon: <Phone className="h-8 w-8" />,
-                title: 'Call Us',
-                info: ['+965 2234 5678', '+965 2234 5679'],
-                action: 'Available 24/7'
-              },
-              {
-                icon: <Mail className="h-8 w-8" />,
-                title: 'Email Us',
-                info: ['info@jointcircle.com', 'support@jointcircle.com'],
-                action: 'We reply within 24 hours'
-              },
-              {
-                icon: <MapPin className="h-8 w-8" />,
-                title: 'Visit Us',
-                info: ['Kuwait City, Kuwait', 'Business District'],
-                action: 'Open Sunday-Thursday'
-              }
-            ].map((contact, index) => (
+            {translations[language].contact.contactMethods.map((contact, index) => (
               <div
                 key={index}
                 className="group bg-white rounded-xl p-8 text-center transform transition-all duration-300 hover:shadow-2xl hover:-translate-y-2"
               >
-                <div className="inline-flex items-center justify-center w-16 h-16 mb-6 rounded-full bg-yellow-400 text-neutral-800 group-hover:scale-110 transition-transform duration-300">
+                <div
+                  className={`inline-flex items-center justify-center w-16 h-16 mb-6 rounded-full bg-yellow-400 text-neutral-800 group-hover:scale-110 transition-transform duration-300 ${
+                    language === 'ar' ? 'ml-auto' : ''
+                  }`}
+                >
                   {contact.icon}
                 </div>
                 <h3 className="text-2xl font-bold mb-4 text-neutral-800">
@@ -454,7 +642,8 @@ const JointCircleLanding = () => {
       {/* FOOTER */}
       <footer className="bg-neutral-800 text-white py-12">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Company Info */}
             <div>
               <img
                 src="/joint-circle/images/logo.jpg"
@@ -462,17 +651,20 @@ const JointCircleLanding = () => {
                 className="h-16 w-auto object-contain mb-4"
               />
               <p className="text-gray-400">
-                Building excellence, delivering innovation, and shaping Kuwait's future
-                through quality construction.
+                {translations[language].footer.companyInfo}
               </p>
             </div>
+
+            {/* Quick Links */}
             <div>
-              <h4 className="text-lg font-bold mb-4">Quick Links</h4>
+              <h4 className="text-lg font-bold mb-4">
+                {language === 'en' ? 'Quick Links' : 'روابط سريعة'}
+              </h4>
               <ul className="space-y-2">
-                {['About Us', 'Services', 'Projects', 'Contact'].map((item) => (
+                {translations[language].footer.quickLinks.map((item, index) => (
                   <li key={item}>
                     <a
-                      href={`#${item.toLowerCase()}`}
+                      href={`#${translations[language].footer.quickLinksHref[index]}`}
                       className="text-gray-400 hover:text-yellow-400 transition-colors"
                     >
                       {item}
@@ -481,66 +673,98 @@ const JointCircleLanding = () => {
                 ))}
               </ul>
             </div>
+
+            {/* Contact Information */}
             <div>
-              <h4 className="text-lg font-bold mb-4">Services</h4>
+              <h4 className="text-lg font-bold mb-4">
+                {language === 'en' ? 'Contact Information' : 'معلومات الاتصال'}
+              </h4>
               <ul className="space-y-2">
-                {['Residential', 'Commercial', 'Infrastructure', 'Consulting'].map(
-                  (item) => (
-                    <li key={item}>
-                      <a
-                        href={`#${item.toLowerCase()}`}
-                        className="text-gray-400 hover:text-yellow-400 transition-colors"
-                      >
-                        {item}
-                      </a>
-                    </li>
-                  )
-                )}
+                <li className="text-gray-400 flex items-center">
+                  <Phone
+                    className={`h-4 w-4 ${
+                      language === 'ar' ? 'ml-2' : 'mr-2'
+                    } text-yellow-400`}
+                  />
+                  {translations[language].footer.contactInfo.phone}
+                </li>
+                <li className="text-gray-400 flex items-center">
+                  <Mail
+                    className={`h-4 w-4 ${
+                      language === 'ar' ? 'ml-2' : 'mr-2'
+                    } text-yellow-400`}
+                  />
+                  {translations[language].footer.contactInfo.email}
+                </li>
+                <li className="text-gray-400 flex items-center">
+                  <MapPin
+                    className={`h-4 w-4 ${
+                      language === 'ar' ? 'ml-2' : 'mr-2'
+                    } text-yellow-400`}
+                  />
+                  {translations[language].footer.contactInfo.address}
+                </li>
               </ul>
             </div>
-            <div>
-              <h4 className="text-lg font-bold mb-4">Newsletter</h4>
-              <p className="text-gray-400 mb-4">
-                Subscribe to our newsletter for updates
-              </p>
-              <div className="flex">
-                <input
-                  type="email"
-                  placeholder="Your email"
-                  className="flex-1 px-4 py-2 rounded-l-lg focus:outline-none text-neutral-800"
-                />
-                <button className="bg-yellow-400 text-neutral-800 px-4 py-2 rounded-r-lg hover:bg-yellow-500 transition-colors">
-                  Subscribe
-                </button>
-              </div>
-            </div>
           </div>
+
+          {/* Copyright */}
           <div className="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
-            <p>&copy; 2025 Joint Circle. All rights reserved.</p>
+            <p
+              dangerouslySetInnerHTML={{
+                __html: translations[language].footer.rights
+              }}
+            ></p>
           </div>
         </div>
       </footer>
 
-{/* ANIMATION STYLES */}
-<style>{`
-  .animate-on-scroll {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-  }
-  .fade-in {
-    opacity: 1;
-    transform: translateY(0);
-  }
+      {/* ANIMATION STYLES */}
+      <style>{`
+        .animate-on-scroll {
+          opacity: 0;
+          transform: translateY(20px);
+          transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in {
+          opacity: 1;
+          transform: translateY(0);
+        }
 
-  /* Enhanced image hover effects */
-  img {
-    transition: transform 0.5s ease-in-out;
-  }
-  .group:hover img {
-    transform: scale(1.05);
-  }
-  `}</style>
+        /* Enhanced image hover effects */
+        img {
+          transition: transform 0.5s ease-in-out;
+        }
+        .group:hover img {
+          transform: scale(1.05);
+        }
+
+        /* RTL Support */
+        .rtl {
+          direction: rtl;
+          text-align: right;
+        }
+
+        .ltr {
+          direction: ltr;
+          text-align: left;
+        }
+
+        /* Adjust aspect ratio for projects section */
+        .aspect-w-16.aspect-h-9 {
+          position: relative;
+          width: 100%;
+          padding-bottom: 56.25%; /* 16:9 ratio */
+        }
+        .aspect-w-16.aspect-h-9 img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      `}</style>
     </div>
   );
 };
