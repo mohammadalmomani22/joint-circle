@@ -60,28 +60,28 @@ const ATMSecurityLanding = () => {
         'Heat Dissipation System',
         'Day & Night Efficiency',
       ],
-      image: 'public/images/drive-thru.jpg',
+      image: './images/drive-thru.jpg',
     },
     {
       title: 'Adaptive Drive Thru',
       description:
         'Allows clients to adjust ATM height with a wave of the hand. Ideal for all vehicles including sedans, SUVs, and sports cars. Features a fail-safe system for consistent height adjustment.',
       features: ['Height Adjustment', 'Voice Guidance', 'Braille Instructions'],
-      image: 'public/images/adaptive-drive.jpg',
+      image: './images/adaptive-drive.jpg',
     },
     {
       title: 'ATM Enclosures',
       description:
         'Introducing our new range of customizable ATM enclosures, designed to enhance the look and feel of your machines with various customization options.',
       features: ['Reinforced Steel', 'Biometric Access', 'Alarm System'],
-      image: 'public/images/enclosure.jpg',
+      image: './images/enclosure.jpg',
     },
     {
       title: 'Mobile ATM',
       description:
         "TransTech is the region's first Mobile ATM manufacturer. With over 50 concepts produced, we lead in design and innovation in the mobile ATM industry.",
       features: ['Quick Setup', 'Satellite Connectivity', 'Solar Power Option'],
-      image: 'public/images/mobile-atm.jpg',
+      image: './images/mobile-atm.jpg',
     },
   ];
 
@@ -103,7 +103,7 @@ Warm regards,
 
 Engr. N. Ahmed Alam
 CEO`,
-      image: 'public/images/chairman1.jpg',
+      image: './images/chairman1.jpg',
     },
     {
       name: 'Sami Al-Sarraf',
@@ -122,7 +122,7 @@ Warm regards,
 
 Sami Al-Sarraf
 Chairman and Partner`,
-      image: 'public/images/chairman2.jpg',
+      image: './images/chairman2.jpg',
     },
   ];
 
@@ -258,7 +258,7 @@ Chairman and Partner`,
           <div className="flex justify-between items-center h-24">
             <div className="flex items-center">
               <img
-                src="public/images/company-logo.png"
+                src="./images/company-logo.png"
                 alt="ATM Security Solutions Logo"
                 className="h-24 w-auto transform scale-110"
               />
@@ -310,7 +310,7 @@ Chairman and Partner`,
       <div className="relative h-screen">
         <div className="absolute inset-0 bg-neutral-800 bg-opacity-60">
           <img
-            src="public/images/hero-bg.jpg"
+            src="./images/hero-bg.jpg"
             alt="ATM Security Solutions"
             className="w-full h-full object-cover transform transition-all duration-500 hover:scale-110 hover:rotate-2"
           />
@@ -439,7 +439,7 @@ Chairman and Partner`,
           <div className="flex flex-col md:flex-row items-center md:space-x-12">
             <div className="md:w-1/2 mb-8 md:mb-0">
               <img
-                src="public/images/why-us.jpg"
+                src="./images/why-us.jpg"
                 alt="Why Choose Us"
                 className="w-full h-auto rounded-lg shadow-lg transform transition-all duration-500 hover:scale-110 hover:rotate-2 md:max-h-[400px] lg:max-h-[600px]"
               />
@@ -589,7 +589,7 @@ Chairman and Partner`,
           <div className="grid md:grid-cols-3 gap-8">
             <div>
               <img
-                src="public/images/company-logo-white.png"
+                src="./images/company-logo-white.png"
                 alt="ATM Security Solutions"
                 className="h-12 w-auto mb-4 transform transition-all duration-500 hover:scale-110 hover:rotate-2"
               />
