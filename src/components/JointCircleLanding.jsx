@@ -86,6 +86,27 @@ const ATMSecurityLanding = () => {
     },
   ];
 
+  // New array for Security & Surveillance Solutions
+  const securitySolutions = [
+    { title: 'INTRUSION SYSTEM -lligent Video', image: './images/security/intrusion-system-lligent-video.jpg' },
+    { title: 'HYBRID CCTV SYSTEM', image: './images/security/hybrid-cctv-system.jpg' },
+    { title: 'Intelligent Video Surveillance', image: './images/security/intelligent-video-surveillance.jpg' },
+    { title: 'INTRUSION SYSTEM', image: './images/security/intrusion-system.jpg' },
+    { title: 'RADAR Surveillance', image: './images/security/radar-surveillance.jpg' },
+    { title: 'Long Range Laser Electro Optics', image: './images/security/long-range-laser-electro-optics.jpg' },
+    { title: 'RAZOR WIRES', image: './images/security/razor-wires.jpg' },
+    { title: 'Automatic Retractable Bollard', image: './images/security/automatic-retractable-bollard.jpg' },
+    { title: 'Road Blockers', image: './images/security/road-blockers.jpg' },
+    { title: 'Electrical Road Blockers', image: './images/security/electrical-road-blockers.jpg' },
+    { title: 'Protection Barriers/Fences', image: './images/security/protection-barriers-fences.jpg' },
+    { title: 'Vehicle Scanning System', image: './images/security/vehicle-scanning-system.jpg' },
+    { title: 'Container Scanning System', image: './images/security/container-scanning-system.jpg' },
+    { title: 'Access Control -Vehicle', image: './images/security/access-control-vehicle.jpg' },
+    { title: 'LRAD -Long Range Acoustic', image: './images/security/lrad-long-range-acoustic.jpg' },
+    { title: 'Special Cameras', image: './images/security/special-cameras.jpg' },
+    { title: 'Submersible Surveillance Systems', image: './images/security/submersible-surveillance-systems.jpg' },
+  ];
+
   const leadership = [
     {
       name: 'Engr. N. Ahmed Alam',
@@ -461,6 +482,37 @@ Chairman and Partner`,
                       </li>
                     ))}
                   </ul>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SECURITY & SURVEILLANCE SOLUTIONS SECTION */}
+      <section id="security-solutions" className="py-20 px-4 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-6 text-neutral-800">Security & Surveillance Solutions</h2>
+            <p className="text-lg text-neutral-600 max-w-3xl mx-auto">
+              Advanced solutions to protect your assets and ensure safety.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            {securitySolutions.map((solution, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:scale-105 hover:-translate-y-2 hover:shadow-2xl"
+              >
+                <div className="relative h-48">
+                  <img
+                    src={solution.image}
+                    alt={solution.title}
+                    className="w-full h-full object-cover transform transition-all duration-500 hover:scale-110 hover:rotate-2"
+                  />
+                </div>
+                <div className="p-4">
+                  <h3 className="text-xl font-bold text-neutral-800">{solution.title}</h3>
                 </div>
               </div>
             ))}
