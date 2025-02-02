@@ -24,6 +24,7 @@ const ATMSecurityLanding = () => {
     { name: 'Why Us', section: 'why-us' },
     { name: 'Our Expertise', section: 'expertise' },
     { name: 'Industries', section: 'industries' },
+    { name: 'Portfolio', section: 'portfolio' }, // Added Portfolio link
     { name: 'Contact', section: 'contact' },
   ];
 
@@ -176,6 +177,52 @@ Chairman and Partner`,
         'Addressing the unique challenges of the oil and gas industry with cutting-edge, reliable solutions. We serve upstream, midstream, and downstream segments.',
     },
   ];
+
+  const portfolioProjects = [
+    { title: 'Direct Aid Project', image: './images/portfolio/Pic01 (1).jpg' },
+    { title: 'Swiftel International Group', image: './images/portfolio/Pic01 (2).jpg' },
+    { title: 'Al-Nafisi Electrical', image: './images/portfolio/Pic01 (3).jpg' },
+    { title: 'Private Villa for Royal Family', image: './images/portfolio/Pic01 (4).jpg' },
+    { title: 'Private Villa for Abdul MOhsin Al-Bisher', image: './images/portfolio/Pic01 (5).jpg' },
+    { title: 'Fadiya Dawood H Al-Mutawa Villa', image: './images/portfolio/Pic01 (6).jpg' },
+    { title: 'Future Kid', image: './images/portfolio/Pic01 (7).jpg' },
+    { title: 'Carpet Showroom For Abbas Ali Al-Hazeem', image: './images/portfolio/Pic01 (8).jpg' },
+    { title: 'Private Villa & Swimming Pool', image: './images/portfolio/Pic01 (9).jpg' },
+    { title: 'Mosque at Mishref', image: './images/portfolio/Pic01 (10).jpg' },
+    { title: 'Al-Anjari Cold Store', image: './images/portfolio/Pic01 (11).jpg' },
+    { title: 'Al-Wazzan', image: './images/portfolio/Pic01 (12).jpg' },
+    { title: 'Private villa for Mr. Ahmed al-sarraf', image: './images/portfolio/Pic01 (13).jpg' },
+    { title: 'Diwaniya For Royal Family', image: './images/portfolio/Pic01 (14).jpg' },
+    { title: 'Ediction Hospital', image: './images/portfolio/Pic01 (15).jpg' },
+    { title: 'Car Show Room For Al-Dabbous', image: './images/portfolio/Pic01 (16).jpg' },
+    { title: 'Dvd Production Factory', image: './images/portfolio/Pic01 (17).jpg' },
+    { title: 'Steel Sky Light Work', image: './images/portfolio/Pic01 (18).jpg' },
+    { title: 'Block factory for kuwait building material', image: './images/portfolio/Pic01 (19).jpg' },
+    { title: 'Al-Resala Bilngual School', image: './images/portfolio/Pic01 (20).jpg' },
+    { title: 'Private villa for mr. Nezar sultan al-essa', image: './images/portfolio/Pic01 (21).jpg' },
+    { title: 'Private Villa for Mr. Hisham Sultan', image: './images/portfolio/Pic01 (22).jpg' },
+    { title: 'Head office building for national medical consumable industries co', image: './images/portfolio/Pic01 (23).jpg' },
+    { title: 'Al Wazzan Company', image: './images/portfolio/Pic01 (24).jpg' },
+    { title: 'Kuwait agriculture co. Shuwaikh', image: './images/portfolio/Pic01 (25).jpg' },
+    { title: 'Kuwait Agriculture Co. Amghara', image: './images/portfolio/Pic01 (26).jpg' },
+    { title: 'Kuwait Agriculture Co. Ardiya', image: './images/portfolio/Pic01 (27).jpg' },
+    { title: 'Fahed A. Mohsin al-bisher & Faisal A. Mohsin al-bisher', image: './images/portfolio/Pic01 (28).jpg' },
+    { title: 'Nawal Foad Mulla Hussain- Funaitees', image: './images/portfolio/Pic01 (29).jpg' },
+    { title: 'Private Villa for eng. Bader salman', image: './images/portfolio/Pic01 (30).jpg' },
+    { title: 'Private villa for dr. Mishal al-kanderi', image: './images/portfolio/Pic01 (31).jpg' },
+    { title: 'Private villa for ms. Noor al-hussona - Funaitees', image: './images/portfolio/Pic01 (32).jpg' },
+    { title: 'National Medical Consumable Industries Company', image: './images/portfolio/Pic01 (33).jpg' },
+    { title: 'Boundary Wall For Beach House', image: './images/portfolio/Pic01 (34).jpg' },
+    { title: 'Health Club Building at Sabah Al-salem', image: './images/portfolio/Pic01 (35).jpg' },
+    { title: 'Cold store for kuwait proteins co. (Sabhan)', image: './images/portfolio/Pic01 (36).jpg' },
+    { title: 'Private vil for mr. Ali khaled abdullah faras', image: './images/portfolio/Pic01 (37).jpg' },
+    { title: 'Kuwait Proteins Company Steel Corrugated Sheet', image: './images/portfolio/Pic01 (38).jpg' },
+    { title: 'Private vil for mr. Ali khaled abdullah faras', image: './images/portfolio/Pic01 (39).jpg' },
+    { title: 'Kuwait Proteins Company (Building No. 04)', image: './images/portfolio/Pic01 (40).jpg' }
+  ].map((project, index) => ({
+    ...project,
+    id: index + 1
+  }));
 
   useEffect(() => {
     // Intersection Observer for Animations
@@ -355,8 +402,7 @@ Chairman and Partner`,
                 onTouchStart={() => setActiveCard(index)}
                 onTouchEnd={() => setActiveCard(null)}
                 style={{
-                  transform:
-                    activeCard === index ? 'scale(1.05)' : 'scale(1)',
+                  transform: activeCard === index ? 'scale(1.05)' : 'scale(1)',
                 }}
               >
                 <div className="flex items-center mb-6">
@@ -393,9 +439,7 @@ Chairman and Partner`,
               <div
                 key={index}
                 className="bg-white rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:scale-105 hover:-translate-y-2 hover:shadow-2xl"
-                style={{
-                  perspective: '1000px',
-                }}
+                style={{ perspective: '1000px' }}
                 onTouchStart={() => setActiveCard(index)}
                 onTouchEnd={() => setActiveCard(null)}
               >
@@ -583,6 +627,42 @@ Chairman and Partner`,
         </div>
       </section>
 
+      {/* PORTFOLIO SECTION */}
+      <section id="portfolio" className="py-20 px-4 bg-neutral-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-6 text-neutral-800">Projects Portfolio</h2>
+            <p className="text-lg text-neutral-600 max-w-3xl mx-auto">
+              Over 30 years of excellence in construction and infrastructure development
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {portfolioProjects.map((project) => (
+              <div 
+                key={project.id}
+                className="group relative overflow-hidden rounded-lg shadow-md cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-xl"
+              >
+                <div className="aspect-w-1 aspect-h-1">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                    <h3 className="text-white text-sm font-semibold truncate">
+                      {project.title}
+                    </h3>
+                    <p className="text-yellow-400 text-xs mt-1">Project #{project.id}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* FOOTER */}
       <footer className="bg-neutral-800 text-white py-12">
         <div className="max-w-7xl mx-auto px-4">
@@ -638,25 +718,25 @@ Chairman and Partner`,
         </div>
       </footer>
 
-{/* ANIMATION STYLES */}
-<style>{`
-  .animate-on-scroll {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-  }
-  .visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
+      {/* ANIMATION STYLES */}
+      <style>{`
+        .animate-on-scroll {
+          opacity: 0;
+          transform: translateY(20px);
+          transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .visible {
+          opacity: 1;
+          transform: translateY(0);
+        }
 
-  img {
-    transition: transform 0.5s ease-in-out;
-  }
-  .group:hover img {
-    transform: scale(1.05);
-  }
-`}</style>
+        img {
+          transition: transform 0.5s ease-in-out;
+        }
+        .group:hover img {
+          transform: scale(1.05);
+        }
+      `}</style>
     </div>
   );
 };
