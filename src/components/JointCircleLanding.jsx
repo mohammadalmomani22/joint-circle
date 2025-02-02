@@ -10,6 +10,8 @@ import {
   CheckCircle2,
   Menu,
   X,
+  ChevronLeft,
+  ChevronRight,
   // Import any additional icons if needed
 } from 'lucide-react';
 
@@ -17,6 +19,27 @@ const ATMSecurityLanding = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [activeCard, setActiveCard] = useState(null);
+
+  // Carousel state for Security & Portfolio sections
+  const [securityIndex, setSecurityIndex] = useState(0);
+  const [portfolioIndex, setPortfolioIndex] = useState(0);
+  const [carouselVisibleCount, setCarouselVisibleCount] = useState(6);
+
+  // Update visible count based on window width
+  useEffect(() => {
+    const updateVisibleCount = () => {
+      if (window.innerWidth < 640) {
+        setCarouselVisibleCount(2);
+      } else if (window.innerWidth < 768) {
+        setCarouselVisibleCount(3);
+      } else {
+        setCarouselVisibleCount(6);
+      }
+    };
+    updateVisibleCount();
+    window.addEventListener('resize', updateVisibleCount);
+    return () => window.removeEventListener('resize', updateVisibleCount);
+  }, []);
 
   const navLinks = [
     { name: 'Leadership', section: 'leadership' },
@@ -86,7 +109,7 @@ const ATMSecurityLanding = () => {
     },
   ];
 
-  // New array for Security & Surveillance Solutions
+  // Array for Security & Surveillance Solutions
   const securitySolutions = [
     { title: 'INTRUSION SYSTEM -lligent Video', image: './images/security/intrusion-system-lligent-video.jpg' },
     { title: 'HYBRID CCTV SYSTEM', image: './images/security/hybrid-cctv-system.jpg' },
@@ -245,14 +268,40 @@ Chairman and Partner`,
     id: index + 1
   }));
 
+  // Helper: return a looped slice of an array given a start index and count
+  const getLoopedSlice = (array, start, count) => {
+    const result = [];
+    for (let i = 0; i < count; i++) {
+      result.push(array[(start + i) % array.length]);
+    }
+    return result;
+  };
+
+  // Compute visible items for each carousel based on the dynamic count
+  const visibleSecurityItems = getLoopedSlice(securitySolutions, securityIndex, carouselVisibleCount);
+  const visiblePortfolioItems = getLoopedSlice(portfolioProjects, portfolioIndex, carouselVisibleCount);
+
+  // Handlers for Security carousel navigation (move one image at a time, looped)
+  const nextSecuritySlide = () => {
+    setSecurityIndex((prevIndex) => (prevIndex + 1) % securitySolutions.length);
+  };
+
+  const prevSecuritySlide = () => {
+    setSecurityIndex((prevIndex) => (prevIndex - 1 + securitySolutions.length) % securitySolutions.length);
+  };
+
+  // Handlers for Portfolio carousel navigation (move one image at a time, looped)
+  const nextPortfolioSlide = () => {
+    setPortfolioIndex((prevIndex) => (prevIndex + 1) % portfolioProjects.length);
+  };
+
+  const prevPortfolioSlide = () => {
+    setPortfolioIndex((prevIndex) => (prevIndex - 1 + portfolioProjects.length) % portfolioProjects.length);
+  };
+
   useEffect(() => {
     // Intersection Observer for Animations
-    const observerOptions = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.1,
-    };
-
+    const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
     const handleIntersection = (entries, observer) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -261,9 +310,7 @@ Chairman and Partner`,
         }
       });
     };
-
     const observer = new IntersectionObserver(handleIntersection, observerOptions);
-
     document.querySelectorAll('.animate-on-scroll').forEach((el) => observer.observe(el));
 
     // Smooth Scrolling for Anchor Links
@@ -271,26 +318,17 @@ Chairman and Partner`,
       e.preventDefault();
       const targetId = this.getAttribute('href').slice(1);
       const targetElement = document.getElementById(targetId);
-
       if (targetElement) {
         const navbarHeight = 96;
         const targetPosition = targetElement.getBoundingClientRect().top;
         const offsetPosition = targetPosition + window.pageYOffset - navbarHeight;
-
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth',
-        });
-
-        // Close mobile menu if open
+        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
         setMobileMenuOpen(false);
       }
     };
-
     document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
       anchor.addEventListener('click', handleAnchorClick);
     });
-
     return () => {
       observer.disconnect();
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
@@ -303,8 +341,7 @@ Chairman and Partner`,
     // Scroll Progress Bar
     const handleScroll = () => {
       const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
-      const currentProgress = (window.pageYOffset / totalScroll) * 100;
-      setScrollProgress(currentProgress);
+      setScrollProgress((window.pageYOffset / totalScroll) * 100);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -314,10 +351,7 @@ Chairman and Partner`,
     <div className="min-h-screen bg-white">
       {/* Scroll Progress Bar */}
       <div className="fixed top-0 left-0 w-full h-2 bg-gray-200 z-50">
-        <div
-          className="h-full bg-yellow-400 transition-width duration-300"
-          style={{ width: `${scrollProgress}%` }}
-        />
+        <div className="h-full bg-yellow-400 transition-width duration-300" style={{ width: `${scrollProgress}%` }} />
       </div>
 
       {/* NAVIGATION */}
@@ -422,9 +456,7 @@ Chairman and Partner`,
                 className="bg-gray-50 rounded-lg p-8 animate-on-scroll transition-transform duration-300 touch-card transform"
                 onTouchStart={() => setActiveCard(index)}
                 onTouchEnd={() => setActiveCard(null)}
-                style={{
-                  transform: activeCard === index ? 'scale(1.05)' : 'scale(1)',
-                }}
+                style={{ transform: activeCard === index ? 'scale(1.05)' : 'scale(1)' }}
               >
                 <div className="flex items-center mb-6">
                   <img
@@ -437,9 +469,7 @@ Chairman and Partner`,
                     <p className="text-yellow-400">{leader.position}</p>
                   </div>
                 </div>
-                <p className="text-neutral-600 whitespace-pre-line">
-                  {leader.message}
-                </p>
+                <p className="text-neutral-600 whitespace-pre-line">{leader.message}</p>
               </div>
             ))}
           </div>
@@ -489,33 +519,110 @@ Chairman and Partner`,
         </div>
       </section>
 
-      {/* SECURITY & SURVEILLANCE SOLUTIONS SECTION */}
+      {/* SECURITY & SURVEILLANCE SOLUTIONS SECTION (Carousel) */}
       <section id="security-solutions" className="py-20 px-4 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto relative">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-6 text-neutral-800">Security & Surveillance Solutions</h2>
             <p className="text-lg text-neutral-600 max-w-3xl mx-auto">
               Advanced solutions to protect your assets and ensure safety.
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-            {securitySolutions.map((solution, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:scale-105 hover:-translate-y-2 hover:shadow-2xl"
-              >
-                <div className="relative h-48">
-                  <img
-                    src={solution.image}
-                    alt={solution.title}
-                    className="w-full h-full object-cover transform transition-all duration-500 hover:scale-110 hover:rotate-2"
-                  />
+          <div className="relative">
+            {/* Previous Button */}
+            <button
+              onClick={prevSecuritySlide}
+              className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-white rounded-full shadow-md p-2 hover:bg-yellow-400 transition-colors"
+            >
+              <ChevronLeft size={32} className="text-neutral-800" />
+            </button>
+            {/* Carousel */}
+            <div className="flex space-x-4 overflow-hidden">
+              {visibleSecurityItems.map((solution, index) => (
+                <div
+                  key={index}
+                  className="flex-shrink-0"
+                  style={{ width: `${100 / carouselVisibleCount}%` }}
+                >
+                  <div className="bg-white rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:scale-105 hover:-translate-y-2 hover:shadow-2xl">
+                    <div className="relative h-48">
+                      <img
+                        src={solution.image}
+                        alt={solution.title}
+                        className="w-full h-full object-cover transform transition-all duration-500 hover:scale-110 hover:rotate-2"
+                      />
+                    </div>
+                    <div className="p-4">
+                      <h3 className="text-lg font-bold text-neutral-800 text-center">
+                        {solution.title}
+                      </h3>
+                    </div>
+                  </div>
                 </div>
-                <div className="p-4">
-                  <h3 className="text-xl font-bold text-neutral-800">{solution.title}</h3>
+              ))}
+            </div>
+            {/* Next Button */}
+            <button
+              onClick={nextSecuritySlide}
+              className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-white rounded-full shadow-md p-2 hover:bg-yellow-400 transition-colors"
+            >
+              <ChevronRight size={32} className="text-neutral-800" />
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* PROJECTS PORTFOLIO SECTION (Carousel) */}
+      <section id="portfolio" className="py-20 px-4 bg-neutral-50">
+        <div className="max-w-7xl mx-auto relative">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-6 text-neutral-800">Projects Portfolio</h2>
+            <p className="text-lg text-neutral-600 max-w-3xl mx-auto">
+              Over 30 years of excellence in construction and infrastructure development
+            </p>
+          </div>
+          <div className="relative">
+            {/* Previous Button */}
+            <button
+              onClick={prevPortfolioSlide}
+              className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-white rounded-full shadow-md p-2 hover:bg-yellow-400 transition-colors"
+            >
+              <ChevronLeft size={32} className="text-neutral-800" />
+            </button>
+            {/* Carousel */}
+            <div className="flex space-x-4 overflow-hidden">
+              {visiblePortfolioItems.map((project) => (
+                <div
+                  key={project.id}
+                  className="flex-shrink-0"
+                  style={{ width: `${100 / carouselVisibleCount}%` }}
+                >
+                  <div className="group relative overflow-hidden rounded-lg shadow-md cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
+                    <div className="aspect-w-1 aspect-h-1">
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <h3 className="text-white text-sm font-semibold truncate">
+                          {project.title}
+                        </h3>
+                        <p className="text-yellow-400 text-xs mt-1">Project #{project.id}</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+            {/* Next Button */}
+            <button
+              onClick={nextPortfolioSlide}
+              className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-white rounded-full shadow-md p-2 hover:bg-yellow-400 transition-colors"
+            >
+              <ChevronRight size={32} className="text-neutral-800" />
+            </button>
           </div>
         </div>
       </section>
@@ -581,8 +688,7 @@ Chairman and Partner`,
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-6 text-neutral-800">Industries We Serve</h2>
             <p className="text-lg text-neutral-600 max-w-3xl mx-auto">
-              Delivering top-tier engineering and construction services across a wide range of
-              industries
+              Delivering top-tier engineering and construction services across a wide range of industries
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
@@ -608,7 +714,6 @@ Chairman and Partner`,
               Ready to enhance your ATM security? Contact our team of experts today.
             </p>
           </div>
-
           <div className="grid md:grid-cols-2 gap-8">
             {/* Company Info Card */}
             <div className="bg-white rounded-2xl shadow-xl overflow-hidden transform transition-all duration-300 hover:scale-105 hover:-translate-y-2 hover:shadow-2xl">
@@ -636,7 +741,6 @@ Chairman and Partner`,
                 </div>
               </div>
             </div>
-
             {/* Contact Methods Card */}
             <div className="bg-white rounded-2xl shadow-xl overflow-hidden transform transition-all duration-300 hover:scale-105 hover:-translate-y-2 hover:shadow-2xl">
               <div className="bg-yellow-400 p-8 text-neutral-800">
@@ -675,42 +779,6 @@ Chairman and Partner`,
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* PORTFOLIO SECTION */}
-      <section id="portfolio" className="py-20 px-4 bg-neutral-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-6 text-neutral-800">Projects Portfolio</h2>
-            <p className="text-lg text-neutral-600 max-w-3xl mx-auto">
-              Over 30 years of excellence in construction and infrastructure development
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {portfolioProjects.map((project) => (
-              <div 
-                key={project.id}
-                className="group relative overflow-hidden rounded-lg shadow-md cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-xl"
-              >
-                <div className="aspect-w-1 aspect-h-1">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                    <h3 className="text-white text-sm font-semibold truncate">
-                      {project.title}
-                    </h3>
-                    <p className="text-yellow-400 text-xs mt-1">Project #{project.id}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -781,7 +849,6 @@ Chairman and Partner`,
           opacity: 1;
           transform: translateY(0);
         }
-
         img {
           transition: transform 0.5s ease-in-out;
         }
