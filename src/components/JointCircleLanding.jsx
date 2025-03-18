@@ -45,9 +45,9 @@ const ATMSecurityLanding = () => {
     { name: 'Leadership', section: 'leadership' },
     { name: 'ATM Solutions', section: 'products' },
     { name: 'Why Us', section: 'why-us' },
-    { name: 'Our Expertise', section: 'expertise' },
+    { name: 'Our Expertises', section: 'expertise' },
     { name: 'Industries', section: 'industries' },
-    { name: 'Portfolio', section: 'portfolio' }, // Added Portfolio link
+    { name: 'Our Projects', section: 'portfolio' }, // Added Portfolio link
     { name: 'Contact', section: 'contact' },
   ];
 
@@ -111,23 +111,23 @@ const ATMSecurityLanding = () => {
 
   // Array for Security & Surveillance Solutions
   const securitySolutions = [
-    { title: 'INTRUSION SYSTEM -lligent Video', image: './images/security/intrusion-system-lligent-video.jpg' },
-    { title: 'HYBRID CCTV SYSTEM', image: './images/security/hybrid-cctv-system.jpg' },
-    { title: 'Intelligent Video Surveillance', image: './images/security/intelligent-video-surveillance.jpg' },
-    { title: 'INTRUSION SYSTEM', image: './images/security/intrusion-system.jpg' },
-    { title: 'RADAR Surveillance', image: './images/security/radar-surveillance.jpg' },
-    { title: 'Long Range Laser Electro Optics', image: './images/security/long-range-laser-electro-optics.jpg' },
-    { title: 'RAZOR WIRES', image: './images/security/razor-wires.jpg' },
-    { title: 'Automatic Retractable Bollard', image: './images/security/automatic-retractable-bollard.jpg' },
-    { title: 'Road Blockers', image: './images/security/road-blockers.jpg' },
-    { title: 'Electrical Road Blockers', image: './images/security/electrical-road-blockers.jpg' },
-    { title: 'Protection Barriers/Fences', image: './images/security/protection-barriers-fences.jpg' },
-    { title: 'Vehicle Scanning System', image: './images/security/vehicle-scanning-system.jpg' },
-    { title: 'Container Scanning System', image: './images/security/container-scanning-system.jpg' },
-    { title: 'Access Control -Vehicle', image: './images/security/access-control-vehicle.jpg' },
-    { title: 'LRAD -Long Range Acoustic', image: './images/security/lrad-long-range-acoustic.jpg' },
-    { title: 'Special Cameras', image: './images/security/special-cameras.jpg' },
-    { title: 'Submersible Surveillance Systems', image: './images/security/submersible-surveillance-systems.jpg' },
+    { title: 'ISO 45001:2018', image: './images/certificates/ISO45001.png' },
+    { title: 'ISO 9001:2015', image: './images/certificates/ISO9001.png' },
+    { title: 'ISO 10001:2018', image: './images/certificates/ISO10002.png' },
+    { title: 'ISO 14001:2015', image: './images/certificates/ISO14001.png' },
+    // { title: 'RADAR Surveillance', image: './images/security/radar-surveillance.jpg' },
+    // { title: 'Long Range Laser Electro Optics', image: './images/security/long-range-laser-electro-optics.jpg' },
+    // { title: 'RAZOR WIRES', image: './images/security/razor-wires.jpg' },
+    // { title: 'Automatic Retractable Bollard', image: './images/security/automatic-retractable-bollard.jpg' },
+    // { title: 'Road Blockers', image: './images/security/road-blockers.jpg' },
+    // { title: 'Electrical Road Blockers', image: './images/security/electrical-road-blockers.jpg' },
+    // { title: 'Protection Barriers/Fences', image: './images/security/protection-barriers-fences.jpg' },
+    // { title: 'Vehicle Scanning System', image: './images/security/vehicle-scanning-system.jpg' },
+    // { title: 'Container Scanning System', image: './images/security/container-scanning-system.jpg' },
+    // { title: 'Access Control -Vehicle', image: './images/security/access-control-vehicle.jpg' },
+    // { title: 'LRAD -Long Range Acoustic', image: './images/security/lrad-long-range-acoustic.jpg' },
+    // { title: 'Special Cameras', image: './images/security/special-cameras.jpg' },
+    // { title: 'Submersible Surveillance Systems', image: './images/security/submersible-surveillance-systems.jpg' },
   ];
 
   const leadership = [
@@ -151,7 +151,7 @@ CEO`,
       image: './images/chairman1.jpg',
     },
     {
-      name: 'Sami Al-Sarraf',
+      name: 'Eng.Sami Al-Sarraf',
       position: 'Chairman and Partner',
       message: `Dear Esteemed Clients and Partners,
 
@@ -173,52 +173,62 @@ Chairman and Partner`,
 
   const expertiseAreas = [
     {
-      title: 'Infrastructure Design',
+      title: 'Project Management',
       overview:
-        'Crafting enduring and efficient infrastructure solutions that meet current needs while anticipating future demands. We focus on planning and implementing foundational facilities essential for society.',
+        'Ensuring successful project execution by planning, organizing, and managing resources to achieve project goals efficiently and effectively.',
     },
     {
-      title: 'Civil Engineering',
+      title: 'Information and Communication Technology',
       overview:
-        'Designing and constructing infrastructure projects like roads, bridges, dams, and buildings. We create structures that support daily life and economic activities.',
+        'Leveraging cutting-edge technology solutions to enhance communication, data management, and operational efficiency across industries.',
     },
     {
-      title: 'Architecture',
+      title: 'Contracts',
       overview:
-        'Blending creativity and functionality to design inspiring spaces. We create functional, safe, and aesthetically pleasing environments that address community needs.',
+        'Developing and managing contracts to ensure clarity, compliance, and smooth execution of agreements between stakeholders.',
     },
     {
-      title: 'Structural Engineering',
+      title: 'Procurement',
       overview:
-        'Delivering robust engineering solutions to ensure safety and integrity. We focus on the design and analysis of structures to withstand environmental forces.',
+        'Strategically sourcing and acquiring goods and services to optimize costs, quality, and timelines while maintaining compliance.',
     },
     {
-      title: 'MEP Services',
+      title: 'MEP',
       overview:
-        'Providing integrated Mechanical, Electrical, and Plumbing services to enhance performance, energy efficiency, and sustainability.',
+        'Providing expert Mechanical, Electrical, and Plumbing services to enhance building functionality, energy efficiency, and sustainability.',
+    },
+    {
+      title: 'Renovation',
+      overview:
+        'Revitalizing and upgrading existing structures to improve functionality, aesthetics, and sustainability while preserving their integrity.',
+    },
+    {
+      title: 'Safety & Security',
+      overview:
+        'Implementing robust safety and security measures to protect people, assets, and infrastructure from potential risks and threats.',
     },
   ];
 
   const industries = [
     {
-      title: 'Banking',
+      title: 'Industrial and Warehouse Facilities',
       overview:
-        'Developing secure, innovative banking infrastructure that supports financial growth and stability. The banking sector is a cornerstone of the global economy, facilitating essential financial services.',
+        'Delivering efficient and high-quality solutions for industrial and warehouse infrastructure. We focus on optimizing space, logistics, and operational efficiency to meet business needs.',
     },
     {
-      title: 'Offshore and Onshore Security',
+      title: 'Governmental Projects',
       overview:
-        'Implementing comprehensive security solutions for diverse and challenging environments. We protect assets and personnel in offshore and onshore settings from various threats.',
+        'Supporting public sector initiatives with tailored solutions that enhance infrastructure, security, and service delivery. We ensure compliance with regulations and quality standards.',
     },
     {
-      title: 'Industrial',
+      title: 'Residential Development',
       overview:
-        'Enhancing operational efficiency and safety within industrial sectors through tailored engineering solutions. We support manufacturing, energy, mining, and construction industries.',
+        'Creating sustainable and modern residential communities that prioritize comfort, safety, and architectural excellence. We develop housing solutions tailored to diverse needs.',
     },
     {
-      title: 'Oil and Gas',
+      title: 'Private and Commercial Contracts',
       overview:
-        'Addressing the unique challenges of the oil and gas industry with cutting-edge, reliable solutions. We serve upstream, midstream, and downstream segments.',
+        'Providing expert management and execution of private and commercial projects, ensuring high-quality standards, cost efficiency, and timely delivery.',
     },
   ];
 
@@ -390,9 +400,8 @@ Chairman and Partner`,
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden fixed inset-0 z-40 bg-neutral-800 bg-opacity-95 transform ${
-          mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
-        } transition-transform duration-300`}
+        className={`md:hidden fixed inset-0 z-40 bg-neutral-800 bg-opacity-95 transform ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+          } transition-transform duration-300`}
       >
         <div className="flex flex-col items-center justify-center h-full space-y-8">
           {navLinks.map((link) => (
@@ -426,7 +435,7 @@ Chairman and Partner`,
               Industry-leading ATM solutions with unmatched security features
             </p>
             <div className="flex justify-center gap-4">
-              <a
+              {/* <a
                 href="#products"
                 className="bg-yellow-400 text-neutral-800 px-6 py-3 rounded-lg transform transition-all duration-300 hover:scale-105 hover:-translate-y-1 active:scale-95 hover:bg-yellow-500 transition-colors duration-200"
               >
@@ -437,42 +446,88 @@ Chairman and Partner`,
                 className="border-2 border-white px-6 py-3 rounded-lg transform transition-all duration-300 hover:scale-105 hover:-translate-y-1 active:scale-95 hover:bg-white hover:text-neutral-800 transition-colors duration-200"
               >
                 Contact Sales
-              </a>
+              </a> */}
             </div>
           </div>
         </div>
       </div>
 
-      {/* LEADERSHIP SECTION */}
-      <section id="leadership" className="py-20 px-4 bg-white">
+      {/* ABOUT US SECTION */}
+      <section id="about-us" className="py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
+          {/* Introduction */}
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-6 text-neutral-800">Our Leadership</h2>
+            <h2 className="text-4xl font-bold mb-6 text-neutral-800">About Us</h2>
+            <p className="text-lg text-neutral-600 max-w-3xl mx-auto">
+              We are dedicated to creating innovative solutions that transform industries and improve lives.
+              Our team combines expertise, passion, and creativity to deliver exceptional results for our clients
+              and partners around the world.
+            </p>
           </div>
-          <div className="grid md:grid-cols-2 gap-12">
-            {leadership.map((leader, index) => (
-              <div
-                key={index}
-                className="bg-gray-50 rounded-lg p-8 animate-on-scroll transition-transform duration-300 touch-card transform"
-                onTouchStart={() => setActiveCard(index)}
-                onTouchEnd={() => setActiveCard(null)}
-                style={{ transform: activeCard === index ? 'scale(1.05)' : 'scale(1)' }}
-              >
-                <div className="flex items-center mb-6">
-                  <img
-                    src={leader.image}
-                    alt={leader.name}
-                    className="w-24 h-24 rounded-full object-cover mr-6 transform transition-all duration-500 hover:scale-110 hover:rotate-2"
-                  />
-                  <div>
-                    <h3 className="text-2xl font-bold text-neutral-800">{leader.name}</h3>
-                    <p className="text-yellow-400">{leader.position}</p>
-                  </div>
+
+          {/* Chairman & CEO Messages */}
+          <div className="grid md:grid-cols-2 gap-12 mb-16">
+            {/* Chairman Message */}
+            <div className="bg-gray-50 rounded-lg p-8 animate-on-scroll">
+              <div className="flex items-center mb-6">
+                <img
+                  src={leadership[0].image}
+                  alt={leadership[0].name}
+                  className="w-24 h-24 rounded-full object-cover mr-6 transform transition-all duration-500 hover:scale-110 hover:rotate-2"
+                />
+                <div>
+                  <h3 className="text-2xl font-bold text-neutral-800">{leadership[0].name}</h3>
+                  <p className="text-yellow-400">Chairman</p>
                 </div>
-                <p className="text-neutral-600 whitespace-pre-line">{leader.message}</p>
               </div>
-            ))}
+              <p className="text-neutral-600 whitespace-pre-line">{leadership[0].message}</p>
+            </div>
+
+            {/* CEO Message */}
+            <div className="bg-gray-50 rounded-lg p-8 animate-on-scroll">
+              <div className="flex items-center mb-6">
+                <img
+                  src={leadership[1].image}
+                  alt={leadership[1].name}
+                  className="w-24 h-24 rounded-full object-cover mr-6 transform transition-all duration-500 hover:scale-110 hover:rotate-2"
+                />
+                <div>
+                  <h3 className="text-2xl font-bold text-neutral-800">{leadership[1].name}</h3>
+                  <p className="text-yellow-400">CEO</p>
+                </div>
+              </div>
+              <p className="text-neutral-600 whitespace-pre-line">{leadership[1].message}</p>
+            </div>
           </div>
+
+          {/* Leadership Team
+          <div>
+            <h3 className="text-3xl font-bold mb-8 text-center text-neutral-800">Leadership Team</h3>
+            <div className="grid md:grid-cols-3 gap-8">
+              {leadership.slice(2).map((leader, index) => (
+                <div
+                  key={index}
+                  className="bg-gray-50 rounded-lg p-6 animate-on-scroll transition-transform duration-300 touch-card transform"
+                  onTouchStart={() => setActiveCard(index)}
+                  onTouchEnd={() => setActiveCard(null)}
+                  style={{ transform: activeCard === index + 2 ? 'scale(1.05)' : 'scale(1)' }}
+                >
+                  <div className="flex flex-col items-center mb-4 text-center">
+                    <img
+                      src={leader.image}
+                      alt={leader.name}
+                      className="w-20 h-20 rounded-full object-cover mb-4 transform transition-all duration-500 hover:scale-110 hover:rotate-2"
+                    />
+                    <div>
+                      <h4 className="text-xl font-bold text-neutral-800">{leader.name}</h4>
+                      <p className="text-yellow-400">{leader.position}</p>
+                    </div>
+                  </div>
+                  <p className="text-neutral-600 text-center whitespace-pre-line">{leader.message}</p>
+                </div>
+              ))}
+            </div>
+          </div> */}
         </div>
       </section>
 
@@ -523,52 +578,59 @@ Chairman and Partner`,
       <section id="security-solutions" className="py-20 px-4 bg-gray-50">
         <div className="max-w-7xl mx-auto relative">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-6 text-neutral-800">Security & Surveillance Solutions</h2>
-            <p className="text-lg text-neutral-600 max-w-3xl mx-auto">
+            <h2 className="text-4xl font-bold mb-6 text-neutral-800">Certificates And Achievements</h2>
+            {/* <p className="text-lg text-neutral-600 max-w-3xl mx-auto">
               Advanced solutions to protect your assets and ensure safety.
             </p>
+             */}
           </div>
           <div className="relative">
-            {/* Previous Button */}
-            <button
-              onClick={prevSecuritySlide}
-              className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-white rounded-full shadow-md p-2 hover:bg-yellow-400 transition-colors"
-            >
-              <ChevronLeft size={32} className="text-neutral-800" />
-            </button>
-            {/* Carousel */}
-            <div className="flex space-x-4 overflow-hidden">
-              {visibleSecurityItems.map((solution, index) => (
-                <div
-                  key={index}
-                  className="flex-shrink-0"
-                  style={{ width: `${100 / carouselVisibleCount}%` }}
-                >
-                  <div className="bg-white rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:scale-105 hover:-translate-y-2 hover:shadow-2xl">
-                    <div className="relative h-48">
-                      <img
-                        src={solution.image}
-                        alt={solution.title}
-                        className="w-full h-full object-cover transform transition-all duration-500 hover:scale-110 hover:rotate-2"
-                      />
-                    </div>
-                    <div className="p-4">
-                      <h3 className="text-lg font-bold text-neutral-800 text-center">
-                        {solution.title}
-                      </h3>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-            {/* Next Button */}
-            <button
-              onClick={nextSecuritySlide}
-              className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-white rounded-full shadow-md p-2 hover:bg-yellow-400 transition-colors"
-            >
-              <ChevronRight size={32} className="text-neutral-800" />
-            </button>
+  {/* Previous Button */}
+  <button
+    onClick={prevSecuritySlide}
+    className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-white rounded-full shadow-md p-2 hover:bg-yellow-400 transition-colors"
+  >
+    <ChevronLeft size={32} className="text-neutral-800" />
+  </button>
+  
+  {/* Carousel */}
+  <div className="flex space-x-4 overflow-hidden px-12">
+    {visibleSecurityItems.map((solution, index) => (
+      <div
+        key={index}
+        className="flex-shrink-0"
+        style={{ 
+          width: `${Math.min(100 / carouselVisibleCount, 25)}%` // Maximum 4 elements (25% each) 
+        }}
+      >
+        <div className="bg-white rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:scale-105 hover:-translate-y-2 hover:shadow-2xl">
+          <div className="relative" style={{ 
+            paddingTop: "141.4%" // A4 aspect ratio (1:√2 ≈ 1:1.414)
+          }}>
+            <img
+              src={solution.image}
+              alt={solution.title}
+              className="absolute top-0 left-0 w-full h-full object-cover transform transition-all duration-500 hover:scale-110 hover:rotate-2"
+            />
           </div>
+          <div className="p-4">
+            <h3 className="text-lg font-bold text-neutral-800 text-center">
+              {solution.title}
+            </h3>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+  
+  {/* Next Button */}
+  <button
+    onClick={nextSecuritySlide}
+    className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-white rounded-full shadow-md p-2 hover:bg-yellow-400 transition-colors"
+  >
+    <ChevronRight size={32} className="text-neutral-800" />
+  </button>
+</div>
         </div>
       </section>
 
@@ -576,7 +638,7 @@ Chairman and Partner`,
       <section id="portfolio" className="py-20 px-4 bg-neutral-50">
         <div className="max-w-7xl mx-auto relative">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-6 text-neutral-800">Projects Portfolio</h2>
+            <h2 className="text-4xl font-bold mb-6 text-neutral-800">Our Projects</h2>
             <p className="text-lg text-neutral-600 max-w-3xl mx-auto">
               Over 30 years of excellence in construction and infrastructure development
             </p>
@@ -633,10 +695,7 @@ Chairman and Partner`,
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-6 text-neutral-800">Why Us?</h2>
             <p className="text-lg text-neutral-600 max-w-3xl mx-auto">
-              With over 40 experienced employees, we are a full-service manufacturing company
-              capable of completing large turnkey projects on time and within budget. Our
-              in-house capabilities include welding, large format printing, laser cutting, and
-              more.
+              With over 47 experienced professionals, we are a full-service project management and infrastructure solutions company. Our expertise spans project management, information and communication technology, contracts, procurement, MEP services, renovation, and safety & security. We specialize in delivering end-to-end solutions, ensuring efficiency, compliance, and quality in every project we undertake.
             </p>
           </div>
           <div className="flex flex-col md:flex-row items-center md:space-x-12">
@@ -644,16 +703,16 @@ Chairman and Partner`,
               <img
                 src="./images/why-us.jpg"
                 alt="Why Choose Us"
-                className="w-full h-auto rounded-lg shadow-lg transform transition-all duration-500 hover:scale-110 hover:rotate-2 md:max-h-[400px] lg:max-h-[600px]"
+                classxName="w-full h-auto rounded-lg shadow-lg transform transition-all duration-500 hover:scale-110 hover:rotate-2 md:max-h-[400px] lg:max-h-[600px]"
               />
             </div>
             <div className="md:w-1/2">
-              <h3 className="text-2xl font-bold mb-4 text-neutral-800">Since 2003</h3>
-              <p className="text-neutral-600 mb-4">
+              <h3 className="text-2xl font-bold mb-4 text-neutral-800">Since 1978</h3>
+              {/* <p className="text-neutral-600 mb-4">
                 TransTech Group is a trusted provider of banking solutions in the GCC. We've
                 partnered with every major bank in the region, forging long-term relationships
                 based on excellence and client satisfaction.
-              </p>
+              </p> */}
             </div>
           </div>
         </div>
