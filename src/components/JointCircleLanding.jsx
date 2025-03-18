@@ -421,7 +421,7 @@ Chairman and Partner`,
       <div className="relative h-screen">
         <div className="absolute inset-0 bg-neutral-800 bg-opacity-60">
           <img
-            src="./images/hero-bg.jpg"
+            src="./images/banner.jpeg"
             alt="ATM Security Solutions"
             className="w-full h-full object-cover transform transition-all duration-500 hover:scale-110 hover:rotate-2"
           />
