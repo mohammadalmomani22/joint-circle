@@ -132,7 +132,7 @@ const ATMSecurityLanding = () => {
 
   const leadership = [
     {
-      name: 'Engr. N. Ahmed Alam',
+      name: 'Eng. N. Ahmed Alam',
       position: 'CEO',
       message: `Dear Valued Clients and Partners,
 
@@ -146,12 +146,12 @@ Thank you for your continued support.
 
 Warm regards,
 
-Engr. N. Ahmed Alam
+Eng. N. Ahmed Alam
 CEO`,
       image: './images/chairman1.jpg',
     },
     {
-      name: 'Eng.Sami Al-Sarraf',
+      name: 'Eng. Sami Al-Sarraf',
       position: 'Chairman and Partner',
       message: `Dear Esteemed Clients and Partners,
 
@@ -585,52 +585,52 @@ Chairman and Partner`,
              */}
           </div>
           <div className="relative">
-  {/* Previous Button */}
-  <button
-    onClick={prevSecuritySlide}
-    className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-white rounded-full shadow-md p-2 hover:bg-yellow-400 transition-colors"
-  >
-    <ChevronLeft size={32} className="text-neutral-800" />
-  </button>
-  
-  {/* Carousel */}
-  <div className="flex space-x-4 overflow-hidden px-12">
-    {visibleSecurityItems.map((solution, index) => (
-      <div
-        key={index}
-        className="flex-shrink-0"
-        style={{ 
-          width: `${Math.min(100 / carouselVisibleCount, 25)}%` // Maximum 4 elements (25% each) 
-        }}
-      >
-        <div className="bg-white rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:scale-105 hover:-translate-y-2 hover:shadow-2xl">
-          <div className="relative" style={{ 
-            paddingTop: "141.4%" // A4 aspect ratio (1:√2 ≈ 1:1.414)
-          }}>
-            <img
-              src={solution.image}
-              alt={solution.title}
-              className="absolute top-0 left-0 w-full h-full object-cover transform transition-all duration-500 hover:scale-110 hover:rotate-2"
-            />
+            {/* Previous Button */}
+            <button
+              onClick={prevSecuritySlide}
+              className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-white rounded-full shadow-md p-2 hover:bg-yellow-400 transition-colors"
+            >
+              <ChevronLeft size={32} className="text-neutral-800" />
+            </button>
+
+            {/* Carousel */}
+            <div className="flex space-x-4 overflow-hidden px-12">
+              {visibleSecurityItems.map((solution, index) => (
+                <div
+                  key={index}
+                  className="flex-shrink-0"
+                  style={{
+                    width: `${Math.min(100 / carouselVisibleCount, 25)}%` // Maximum 4 elements (25% each) 
+                  }}
+                >
+                  <div className="bg-white rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:scale-105 hover:-translate-y-2 hover:shadow-2xl">
+                    <div className="relative" style={{
+                      paddingTop: "141.4%" // A4 aspect ratio (1:√2 ≈ 1:1.414)
+                    }}>
+                      <img
+                        src={solution.image}
+                        alt={solution.title}
+                        className="absolute top-0 left-0 w-full h-full object-cover transform transition-all duration-500 hover:scale-110 hover:rotate-2"
+                      />
+                    </div>
+                    <div className="p-4">
+                      <h3 className="text-lg font-bold text-neutral-800 text-center">
+                        {solution.title}
+                      </h3>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Next Button */}
+            <button
+              onClick={nextSecuritySlide}
+              className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-white rounded-full shadow-md p-2 hover:bg-yellow-400 transition-colors"
+            >
+              <ChevronRight size={32} className="text-neutral-800" />
+            </button>
           </div>
-          <div className="p-4">
-            <h3 className="text-lg font-bold text-neutral-800 text-center">
-              {solution.title}
-            </h3>
-          </div>
-        </div>
-      </div>
-    ))}
-  </div>
-  
-  {/* Next Button */}
-  <button
-    onClick={nextSecuritySlide}
-    className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-white rounded-full shadow-md p-2 hover:bg-yellow-400 transition-colors"
-  >
-    <ChevronRight size={32} className="text-neutral-800" />
-  </button>
-</div>
         </div>
       </section>
 
