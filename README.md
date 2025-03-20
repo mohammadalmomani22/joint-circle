@@ -18,7 +18,18 @@ This template provides a minimal setup to get React working in Vite with HMR and
    git --version
    ```
 
-3. **Install a Code Editor (Optional)**  
+3. **Configure Git**  
+   After installing Git, configure your username and email (required for committing changes):
+   ```bash
+   git config --global user.name "Your Name"
+   git config --global user.email "your-email@example.com"
+   ```
+   Verify the configuration:
+   ```bash
+   git config --global --list
+   ```
+
+4. **Install a Code Editor (Optional)**  
    It is recommended to use [Visual Studio Code](https://code.visualstudio.com/) for editing and running the project.
 
 ## Installation and Running Instructions
