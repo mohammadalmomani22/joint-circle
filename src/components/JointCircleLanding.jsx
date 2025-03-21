@@ -24,6 +24,24 @@ const ATMSecurityLanding = () => {
   const [securityIndex, setSecurityIndex] = useState(0);
   const [portfolioIndex, setPortfolioIndex] = useState(0);
   const [carouselVisibleCount, setCarouselVisibleCount] = useState(6);
+  const [currentBanner, setCurrentBanner] = useState(1);
+  
+  const bannerImages = [
+    './images/banner.jpeg',
+    './images/banner2.jpeg',
+    './images/banner3.jpeg',
+    './images/banner4.jpeg',
+    './images/banner5.jpeg'
+  ];
+
+  // Add this useEffect for banner rotation
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentBanner((prev) => (prev % 5) + 1);
+    }, 5000);
+
+    return () => clearInterval(timer);
+  }, []);
 
   // Update visible count based on window width
   useEffect(() => {
@@ -367,7 +385,7 @@ Joint Circle Company`,
               <img
                 src="./images/company-logo.png"
                 alt="ATM Security Solutions Logo"
-                className="h-24 w-auto transform scale-110"
+                className="h-32 w-auto transform scale-110" // Changed from h-24 to h-32
               />
             </div>
             <div className="hidden md:flex space-x-8">
@@ -413,39 +431,45 @@ Joint Circle Company`,
       </div>
 
       {/* HERO */}
-      <div className="relative h-screen">
-        <div className="absolute inset-0 bg-neutral-800 bg-opacity-60">
-          <img
-            src="./images/banner.jpeg"
-            alt="ATM Security Solutions"
-            className="w-full h-full object-cover transform transition-all duration-500 hover:scale-110 hover:rotate-2"
-          />
+      <div className="relative h-screen overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70 z-10" />
+          {bannerImages.map((src, index) => (
+            <img
+              key={index}
+              src={src}
+              alt={`Slide ${index + 1}`}
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${
+                index === currentBanner - 1 ? 'opacity-100' : 'opacity-0'
+              }`}
+            />
+          ))}
         </div>
-        <div className="relative h-full flex flex-col items-center justify-center text-white px-4">
-          <div className="text-center mb-12 animate-on-scroll">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">
+        <div className="relative z-20 h-full flex flex-col items-center justify-center text-white px-4">
+          <div className="text-center mb-12 animate-on-scroll backdrop-blur-sm bg-black/20 p-8 rounded-lg">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-shadow-lg">
               Securing Tomorrow's Transactions Today
             </h1>
-            <p className="text-xl md:text-2xl mb-8">
+            <p className="text-xl md:text-2xl mb-8 text-shadow-lg">
               Industry-leading ATM solutions with unmatched security features
             </p>
-            <div className="flex justify-center gap-4">
-              {/* <a
-                href="#products"
-                className="bg-yellow-400 text-neutral-800 px-6 py-3 rounded-lg transform transition-all duration-300 hover:scale-105 hover:-translate-y-1 active:scale-95 hover:bg-yellow-500 transition-colors duration-200"
-              >
-                Explore Solutions
-              </a>
-              <a
-                href="#contact"
-                className="border-2 border-white px-6 py-3 rounded-lg transform transition-all duration-300 hover:scale-105 hover:-translate-y-1 active:scale-95 hover:bg-white hover:text-neutral-800 transition-colors duration-200"
-              >
-                Contact Sales
-              </a> */}
-            </div>
           </div>
         </div>
       </div>
+
+      <style>{`
+        .text-shadow-lg {
+          text-shadow: 2px 2px 4px rgba(0,0,0,0.7),
+                       4px 4px 8px rgba(0,0,0,0.5);
+        }
+
+        /* Add these new styles */
+        .transition-opacity {
+          transition-property: opacity;
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        // ...existing styles...
+      `}</style>
 
       {/* ABOUT US SECTION */}
       <section id="about-us" className="py-20 px-4 bg-white">
@@ -693,38 +717,42 @@ Established in 1978, Joint Circle Company stands as a beacon of excellence in in
           </div>
           
           <div className="relative">
-            {/* Vertical Line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-yellow-400/20" />
+            {/* Vertical Line - Hidden on mobile */}
+            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-yellow-400/20 hidden md:block" />
             
-            {expertiseAreas.map((area, index) => (
-              <div
-                key={index}
-                className={`flex items-center mb-16 last:mb-0 group ${
-                  index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'
-                }`}
-              >
-                {/* Content */}
-                <div className={`w-1/2 ${index % 2 === 0 ? 'pr-12 text-right' : 'pl-12 text-left'}`}>
-                  <div className="transform transition-all duration-500 group-hover:-translate-y-2">
-                    <h3 className="text-2xl font-bold mb-4 text-neutral-800 group-hover:text-yellow-400">
-                      {area.title}
-                    </h3>
-                    <p className="text-neutral-600">
-                      {area.overview}
-                    </p>
+            {/* Mobile-friendly timeline */}
+            <div className="space-y-12 md:space-y-0">
+              {expertiseAreas.map((area, index) => (
+                <div
+                  key={index}
+                  className={`flex flex-col md:flex-row items-center mb-16 last:mb-0 group
+                    ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
+                >
+                  {/* Content */}
+                  <div className={`w-full md:w-1/2 text-center md:text-left ${
+                    index % 2 === 0 ? 'md:pr-12 md:text-right' : 'md:pl-12 md:text-left'
+                  }`}>
+                    <div className="transform transition-all duration-500 group-hover:-translate-y-2 p-6 bg-white rounded-lg shadow-lg md:shadow-none md:bg-transparent">
+                      <h3 className="text-2xl font-bold mb-4 text-neutral-800 group-hover:text-yellow-400">
+                        {area.title}
+                      </h3>
+                      <p className="text-neutral-600">
+                        {area.overview}
+                      </p>
+                    </div>
                   </div>
-                </div>
 
-                {/* Timeline Node */}
-                <div className="relative flex items-center justify-center w-16 h-16 rounded-full bg-white shadow-lg transform transition-transform duration-500 group-hover:scale-110 z-10">
-                  <div className="w-8 h-8 rounded-full bg-yellow-400 transform transition-all duration-500 group-hover:scale-125" />
-                  <div className="absolute w-full h-full rounded-full border-2 border-yellow-400/30 animate-ping" />
-                </div>
+                  {/* Timeline Node */}
+                  <div className="relative flex items-center justify-center w-16 h-16 rounded-full bg-white shadow-lg transform transition-transform duration-500 group-hover:scale-110 z-10 my-6 md:my-0">
+                    <div className="w-8 h-8 rounded-full bg-yellow-400 transform transition-all duration-500 group-hover:scale-125" />
+                    <div className="absolute w-full h-full rounded-full border-2 border-yellow-400/30 animate-ping" />
+                  </div>
 
-                {/* Empty Space for Layout */}
-                <div className="w-1/2" />
-              </div>
-            ))}
+                  {/* Spacer for desktop layout */}
+                  <div className="hidden md:block md:w-1/2" />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
