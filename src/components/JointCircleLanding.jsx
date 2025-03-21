@@ -47,11 +47,11 @@ const ATMSecurityLanding = () => {
   useEffect(() => {
     const updateVisibleCount = () => {
       if (window.innerWidth < 640) {
-        setCarouselVisibleCount(2);
-      } else if (window.innerWidth < 768) {
-        setCarouselVisibleCount(3);
+        setCarouselVisibleCount(1); // Show 1 on mobile
+      } else if (window.innerWidth < 1024) {
+        setCarouselVisibleCount(2); // Show 2 on tablets
       } else {
-        setCarouselVisibleCount(6);
+        setCarouselVisibleCount(4); // Show 4 on desktop
       }
     };
     updateVisibleCount();
@@ -625,8 +625,8 @@ Established in 1978, Joint Circle Company stands as a beacon of excellence in in
         </div>
       </section>
 
-      {/* PROJECTS PORTFOLIO SECTION (Carousel) */}
-      <section id="portfolio" className="py-20 px-4 bg-neutral-50">
+      {/* PROJECTS PORTFOLIO SECTION */}
+      <section id="portfolio" className="py-20 px-4 bg-neutral-50 overflow-hidden">
         <div className="max-w-7xl mx-auto relative">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-6 text-neutral-800">Our Projects</h2>
@@ -634,48 +634,78 @@ Established in 1978, Joint Circle Company stands as a beacon of excellence in in
               Over 30 years of excellence in construction and infrastructure development
             </p>
           </div>
+          
           <div className="relative">
-            {/* Previous Button */}
+            {/* Navigation Buttons */}
             <button
               onClick={prevPortfolioSlide}
-              className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-white rounded-full shadow-md p-2 hover:bg-yellow-400 transition-colors"
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 hover:bg-yellow-400 text-neutral-800 rounded-full p-3 shadow-lg transition-all duration-300 backdrop-blur-sm"
             >
-              <ChevronLeft size={32} className="text-neutral-800" />
+              <ChevronLeft size={24} />
             </button>
-            {/* Carousel */}
-            <div className="flex space-x-4 overflow-hidden">
-              {visiblePortfolioItems.map((project) => (
-                <div
-                  key={project.id}
-                  className="flex-shrink-0"
-                  style={{ width: `${100 / carouselVisibleCount}%` }}
-                >
-                  <div className="group relative overflow-hidden rounded-lg shadow-md cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
-                    <div className="aspect-w-1 aspect-h-1">
-                      <img
-                        src={project.image}
-                        alt={project.title}
-                        className="w-full h-full object-cover"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                      <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                        <h3 className="text-white text-sm font-semibold truncate">
-                          {project.title}
-                        </h3>
-                        <p className="text-yellow-400 text-xs mt-1">Project #{project.id}</p>
+
+            {/* Carousel Container */}
+            <div className="overflow-hidden mx-12">
+              <div 
+                className="flex transition-transform duration-700 ease-out"
+                style={{ transform: `translateX(-${portfolioIndex * (100 / carouselVisibleCount)}%)` }}
+              >
+                {portfolioProjects.map((project) => (
+                  <div
+                    key={project.id}
+                    className="flex-shrink-0 px-2 w-full sm:w-1/2 lg:w-1/4 transition-transform duration-500"
+                    style={{ transform: `scale(${activeCard === project.id ? 1.05 : 1})` }}
+                    onMouseEnter={() => setActiveCard(project.id)}
+                    onMouseLeave={() => setActiveCard(null)}
+                  >
+                    <div className="relative rounded-lg shadow-lg group bg-neutral-800">
+                      <div className="aspect-w-4 aspect-h-3 overflow-hidden rounded-lg">
+                        <img
+                          src={project.image}
+                          alt={project.title}
+                          className="w-full h-full object-cover transform transition-all duration-700 group-hover:scale-110"
+                          style={{
+                            width: '100%',
+                            height: '100%',
+                            objectFit: 'cover',
+                            aspectRatio: '4/3'
+                          }}
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500">
+                          <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                            <h3 className="text-white text-lg font-semibold line-clamp-2">
+                              {project.title}
+                            </h3>
+                            <p className="text-yellow-400 text-sm mt-2">Project #{project.id}</p>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-            {/* Next Button */}
+
             <button
               onClick={nextPortfolioSlide}
-              className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-white rounded-full shadow-md p-2 hover:bg-yellow-400 transition-colors"
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 hover:bg-yellow-400 text-neutral-800 rounded-full p-3 shadow-lg transition-all duration-300 backdrop-blur-sm"
             >
-              <ChevronRight size={32} className="text-neutral-800" />
+              <ChevronRight size={24} />
             </button>
+          </div>
+
+          {/* Navigation Dots */}
+          <div className="flex justify-center mt-8 space-x-2">
+            {Array.from({ length: Math.ceil(portfolioProjects.length / carouselVisibleCount) }).map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setPortfolioIndex(index)}
+                className={`w-2 h-2 rounded-full transition-all duration-300 
+                  ${index === Math.floor(portfolioIndex / carouselVisibleCount) 
+                    ? 'w-8 bg-yellow-400' 
+                    : 'bg-neutral-300 hover:bg-yellow-200'}`}
+              />
+            ))}
           </div>
         </div>
       </section>
