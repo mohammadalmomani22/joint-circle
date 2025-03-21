@@ -315,11 +315,15 @@ Joint Circle Company`,
 
   // Handlers for Portfolio carousel navigation (move one image at a time, looped)
   const nextPortfolioSlide = () => {
-    setPortfolioIndex((prevIndex) => (prevIndex + 1) % portfolioProjects.length);
+    setPortfolioIndex((prevIndex) => {
+      const nextIndex = prevIndex + 1;
+      // Only advance if we haven't reached the end
+      return nextIndex <= portfolioProjects.length - 4 ? nextIndex : prevIndex;
+    });
   };
 
   const prevPortfolioSlide = () => {
-    setPortfolioIndex((prevIndex) => (prevIndex - 1 + portfolioProjects.length) % portfolioProjects.length);
+    setPortfolioIndex((prevIndex) => (prevIndex > 0 ? prevIndex - 1 : prevIndex));
   };
 
   useEffect(() => {
@@ -639,7 +643,12 @@ Established in 1978, Joint Circle Company stands as a beacon of excellence in in
             {/* Navigation Buttons */}
             <button
               onClick={prevPortfolioSlide}
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 hover:bg-yellow-400 text-neutral-800 rounded-full p-3 shadow-lg transition-all duration-300 backdrop-blur-sm"
+              disabled={portfolioIndex === 0}
+              className={`absolute left-0 top-1/2 -translate-y-1/2 z-10 ${
+                portfolioIndex === 0
+                  ? 'bg-gray-300 cursor-not-allowed'
+                  : 'bg-white/80 hover:bg-yellow-400 cursor-pointer'
+              } text-neutral-800 rounded-full p-3 shadow-lg transition-all duration-300 backdrop-blur-sm`}
             >
               <ChevronLeft size={24} />
             </button>
@@ -688,7 +697,12 @@ Established in 1978, Joint Circle Company stands as a beacon of excellence in in
 
             <button
               onClick={nextPortfolioSlide}
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 hover:bg-yellow-400 text-neutral-800 rounded-full p-3 shadow-lg transition-all duration-300 backdrop-blur-sm"
+              disabled={portfolioIndex >= portfolioProjects.length - 4}
+              className={`absolute right-0 top-1/2 -translate-y-1/2 z-10 ${
+                portfolioIndex >= portfolioProjects.length - 4
+                  ? 'bg-gray-300 cursor-not-allowed'
+                  : 'bg-white/80 hover:bg-yellow-400 cursor-pointer'
+              } text-neutral-800 rounded-full p-3 shadow-lg transition-all duration-300 backdrop-blur-sm`}
             >
               <ChevronRight size={24} />
             </button>
