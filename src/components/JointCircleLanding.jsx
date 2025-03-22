@@ -457,7 +457,16 @@ Joint Circle Company`,
           {/* Introduction */}
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-6 text-neutral-800">About Us</h2>
-            <p className="text-lg text-neutral-600 max-w-3xl mx-auto">
+            <p className="text-lg text-neutral-600 max-w-3xl mx-auto" style={{ 
+              textAlign: 'justify',
+              textJustify: 'auto',
+              wordSpacing: '-0.05em',
+              letterSpacing: '-0.01em',
+              lineHeight: '1.6',
+              WebkitHyphens: 'auto',
+              hyphens: 'auto',
+              textRendering: 'geometricPrecision',
+            }}>
             Welcome to Joint Circle Company
 
 Established in 1978, Joint Circle Company stands as a beacon of excellence in infrastructure design and development. With over four decades of pioneering expertise, we offer comprehensive services in Civil, Architectural design, Structural engineering, and MEP (Mechanical, Electrical, and Plumbing) solutions. Our commitment to innovation and quality has positioned us as trusted partners across various industries.
@@ -479,7 +488,17 @@ Established in 1978, Joint Circle Company stands as a beacon of excellence in in
                   <p className="text-yellow-400">Chairman</p>
                 </div>
               </div>
-              <p className="text-neutral-600 whitespace-pre-line">{leadership[0].message}</p>
+              <p className="text-neutral-600" style={{ 
+                  textAlign: 'justify',
+                  textJustify: 'auto',
+                  wordSpacing: '-0.05em',
+                  letterSpacing: '-0.01em',
+                  lineHeight: '1.6',
+                  WebkitHyphens: 'auto',
+                  hyphens: 'auto',
+                  textRendering: 'geometricPrecision',
+                  whiteSpace: 'pre-line'
+                }}>{leadership[0].message}</p>
             </div>
 
             {/* CEO Message */}
@@ -495,7 +514,17 @@ Established in 1978, Joint Circle Company stands as a beacon of excellence in in
                   <p className="text-yellow-400">CEO</p>
                 </div>
               </div>
-              <p className="text-neutral-600 whitespace-pre-line">{leadership[1].message}</p>
+              <p className="text-neutral-600" style={{ 
+                  textAlign: 'justify',
+                  textJustify: 'auto',
+                  wordSpacing: '-0.05em',
+                  letterSpacing: '-0.01em',
+                  lineHeight: '1.6',
+                  WebkitHyphens: 'auto',
+                  hyphens: 'auto',
+                  textRendering: 'geometricPrecision',
+                  whiteSpace: 'pre-line'
+                }}>{leadership[1].message}</p>
             </div>
           </div>
 
@@ -690,7 +719,16 @@ Established in 1978, Joint Circle Company stands as a beacon of excellence in in
             {/* Text Content */}
             <div className="md:w-1/2 mb-8 md:mb-0">
               <h3 className="text-2xl font-bold mb-4 text-yellow-400 text-center md:text-left">Since 1978</h3>
-              <p className="text-lg text-neutral-600 text-center md:text-left">
+              <p className="text-lg text-neutral-600" style={{ 
+              textAlign: 'justify',
+              textJustify: 'auto',
+              wordSpacing: '-0.05em',
+              letterSpacing: '-0.01em',
+              lineHeight: '1.6',
+              WebkitHyphens: 'auto',
+              hyphens: 'auto',
+              textRendering: 'geometricPrecision',
+            }}>
                 With over 47 experienced professionals, we are a full-service project management and infrastructure solutions company. Our expertise spans project management, information and communication technology, contracts, procurement, MEP services, renovation, and safety & security. We specialize in delivering end-to-end solutions, ensuring efficiency, compliance, and quality in every project we undertake.
               </p>
             </div>
@@ -801,7 +839,16 @@ Established in 1978, Joint Circle Company stands as a beacon of excellence in in
                   <h3 className="text-xl font-bold mb-4 text-white group-hover:text-neutral-800 transition-colors duration-500">
                     {industry.title}
                   </h3>
-                  <p className="text-gray-300 group-hover:text-neutral-800 transition-colors duration-500 text-sm">
+                  <p className="text-gray-300 group-hover:text-neutral-800 transition-colors duration-500 text-sm" style={{ 
+              textAlign: 'justify',
+              textJustify: 'auto',
+              wordSpacing: '-0.05em',
+              letterSpacing: '-0.01em',
+              lineHeight: '1.6',
+              WebkitHyphens: 'auto',
+              hyphens: 'auto',
+              textRendering: 'geometricPrecision',
+            }}>
                     {industry.overview}
                   </p>
                 </div>
