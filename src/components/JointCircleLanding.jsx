@@ -736,7 +736,22 @@ Established in 1978, Joint Circle Company stands as a beacon of excellence in in
                       <h3 className="text-2xl font-bold mb-4 text-neutral-800 group-hover:text-yellow-400">
                         {area.title}
                       </h3>
-                      <p className="text-neutral-600">
+                      <p 
+                        className="text-neutral-600" 
+                        style={{ 
+                          textAlign: 'justify',
+                          textJustify: 'auto',
+                          wordSpacing: '-0.05em',
+                          letterSpacing: '-0.01em',
+                          lineHeight: '1.6',
+                          WebkitHyphens: 'auto',
+                          hyphens: 'auto',
+                          textRendering: 'geometricPrecision',
+                          fontOpticalSizing: 'auto',
+                          fontKerning: 'normal',
+                          textSizeAdjust: '100%',
+                        }}
+                      >
                         {area.overview}
                       </p>
                     </div>
