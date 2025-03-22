@@ -12,10 +12,12 @@ import {
   X,
   ChevronLeft,
   ChevronRight,
-  // Import any additional icons if needed
 } from 'lucide-react';
 
 const ATMSecurityLanding = () => {
+  // Add new state for modal
+  const [selectedImage, setSelectedImage] = useState(null);
+  
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [activeCard, setActiveCard] = useState(null);
@@ -62,92 +64,44 @@ const ATMSecurityLanding = () => {
   // Update the navLinks array to match section order
   const navLinks = [
     { name: 'About Us', section: 'about-us' },
-    { name: 'Products', section: 'products' },
-    { name: 'Certificates', section: 'security-solutions' },
-    { name: 'Projects', section: 'portfolio' },
-    { name: 'Why Us', section: 'why-us' },
-    { name: 'Expertise', section: 'expertise' },
-    { name: 'Industries', section: 'industries' },
-    { name: 'Contact', section: 'contact' },
+    { name: 'Our Expertise', section: 'expertise' },
+    { name: 'Our Projects', section: 'portfolio' },
+    { name: 'Certificates & Achievements', section: 'security-solutions' },
+    { name: 'Partner & Supplier', section: 'clients' },
+    { name: 'Get In Touch', section: 'contact' },
   ];
 
   const stats = [
     {
       icon: <Building2 className="h-8 w-8" />,
-      value: '10K+',
-      label: 'ATMs Installed',
-    },
-    {
-      icon: <Users className="h-8 w-8" />,
-      value: '500+',
-      label: 'Client Banks',
-    },
-    {
-      icon: <Award className="h-8 w-8" />,
       value: '30+',
       label: 'Years Experience',
     },
     {
+      icon: <Users className="h-8 w-8" />,
+      value: '500+',
+      label: 'Projects Completed',
+    },
+    {
+      icon: <Award className="h-8 w-8" />,
+      value: 'Grade A',
+      label: 'Municipality Rating',
+    },
+    {
       icon: <Shield className="h-8 w-8" />,
       value: '24/7',
-      label: 'Security Monitoring',
+      label: 'Support Service',
     },
   ];
 
-  const atmProducts = [
-    {
-      title: 'Drive Thru Enclosures',
-      description:
-        'Unique designs with day and night efficiency. Optional digital signage allows easy updates to marketing communications. Our enclosures reduce ATM downtime during summer heat with a heat dissipation system.',
-      features: [
-        'Outdoor Digital Signage LEDs',
-        'Heat Dissipation System',
-        'Day & Night Efficiency',
-      ],
-      image: './images/drive-thru.jpg',
-    },
-    {
-      title: 'Adaptive Drive Thru',
-      description:
-        'Allows clients to adjust ATM height with a wave of the hand. Ideal for all vehicles including sedans, SUVs, and sports cars. Features a fail-safe system for consistent height adjustment.',
-      features: ['Height Adjustment', 'Voice Guidance', 'Braille Instructions'],
-      image: './images/adaptive-drive.jpg',
-    },
-    {
-      title: 'ATM Enclosures',
-      description:
-        'Introducing our new range of customizable ATM enclosures, designed to enhance the look and feel of your machines with various customization options.',
-      features: ['Reinforced Steel', 'Biometric Access', 'Alarm System'],
-      image: './images/enclosure.jpg',
-    },
-    {
-      title: 'Mobile ATM',
-      description:
-        "TransTech is the region's first Mobile ATM manufacturer. With over 50 concepts produced, we lead in design and innovation in the mobile ATM industry.",
-      features: ['Quick Setup', 'Satellite Connectivity', 'Solar Power Option'],
-      image: './images/mobile-atm.jpg',
-    },
-  ];
-
-  // Array for Security & Surveillance Solutions
+  // Update the Security Solutions array with 6 certificates
   const securitySolutions = [
-    { title: 'ISO 45001:2018', image: './images/certificates/ISO45001.png' },
-    { title: 'ISO 9001:2015', image: './images/certificates/ISO9001.png' },
-    { title: 'ISO 10001:2018', image: './images/certificates/ISO10002.png' },
-    { title: 'ISO 14001:2015', image: './images/certificates/ISO14001.png' },
-    // { title: 'RADAR Surveillance', image: './images/security/radar-surveillance.jpg' },
-    // { title: 'Long Range Laser Electro Optics', image: './images/security/long-range-laser-electro-optics.jpg' },
-    // { title: 'RAZOR WIRES', image: './images/security/razor-wires.jpg' },
-    // { title: 'Automatic Retractable Bollard', image: './images/security/automatic-retractable-bollard.jpg' },
-    // { title: 'Road Blockers', image: './images/security/road-blockers.jpg' },
-    // { title: 'Electrical Road Blockers', image: './images/security/electrical-road-blockers.jpg' },
-    // { title: 'Protection Barriers/Fences', image: './images/security/protection-barriers-fences.jpg' },
-    // { title: 'Vehicle Scanning System', image: './images/security/vehicle-scanning-system.jpg' },
-    // { title: 'Container Scanning System', image: './images/security/container-scanning-system.jpg' },
-    // { title: 'Access Control -Vehicle', image: './images/security/access-control-vehicle.jpg' },
-    // { title: 'LRAD -Long Range Acoustic', image: './images/security/lrad-long-range-acoustic.jpg' },
-    // { title: 'Special Cameras', image: './images/security/special-cameras.jpg' },
-    // { title: 'Submersible Surveillance Systems', image: './images/security/submersible-surveillance-systems.jpg' },
+    { title: 'ISO 9001:2015', image: './images/certificates/Certificate1.jpg' },
+    { title: 'ISO 14001:2015', image: './images/certificates/Certificate2.jpg' },
+    { title: 'ISO 10002:2018', image: './images/certificates/Certificate3.jpg' },
+    { title: 'ISO 10002:2018', image: './images/certificates/Certificate4.jpg' },
+    { title: 'ISO 45001:2018', image: './images/certificates/Certificate5.jpg' },
+    { title: 'ISO 45001:2018', image: './images/certificates/Certificate6.jpg' },
   ];
 
   const leadership = [
@@ -374,6 +328,13 @@ Joint Circle Company`,
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Add click handler for closing modal when clicking outside
+  const handleModalClick = (e) => {
+    if (e.target === e.currentTarget) {
+      setSelectedImage(null);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-white">
       {/* Scroll Progress Bar */}
@@ -457,6 +418,21 @@ Joint Circle Company`,
             <p className="text-xl md:text-2xl mb-8 text-shadow-lg">
               Industry-leading ATM solutions with unmatched security features
             </p>
+            {/* Add the new buttons here */}
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-8">
+              <a
+                href="#portfolio"
+                className="px-8 py-3 bg-yellow-400 text-neutral-800 rounded-full font-semibold hover:bg-yellow-300 transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+              >
+                View Our Projects
+              </a>
+              <a
+                href="#contact"
+                className="px-8 py-3 bg-white/20 backdrop-blur-sm text-white border-2 border-white rounded-full font-semibold hover:bg-white/30 transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+              >
+                Get a Free Consultation
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -554,49 +530,6 @@ Established in 1978, Joint Circle Company stands as a beacon of excellence in in
         </div>
       </section>
 
-      {/* PRODUCTS SECTION */}
-      <section id="products" className="py-20 px-4 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-6 text-neutral-800">Our ATM Solutions</h2>
-            <p className="text-lg text-neutral-600 max-w-3xl mx-auto">
-              Comprehensive ATM security solutions designed for every environment
-            </p>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {atmProducts.map((product, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:scale-105 hover:-translate-y-2 hover:shadow-2xl"
-                style={{ perspective: '1000px' }}
-                onTouchStart={() => setActiveCard(index)}
-                onTouchEnd={() => setActiveCard(null)}
-              >
-                <div className="relative h-48">
-                  <img
-                    src={product.image}
-                    alt={product.title}
-                    className="w-full h-full object-cover transform transition-all duration-500 hover:scale-110 hover:rotate-2"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-3 text-neutral-800">{product.title}</h3>
-                  <p className="text-neutral-600 mb-4">{product.description}</p>
-                  <ul className="space-y-2">
-                    {product.features.map((feature, i) => (
-                      <li key={i} className="flex items-center text-sm text-neutral-600">
-                        <CheckCircle2 className="h-4 w-4 text-yellow-400 mr-2" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* SECURITY & SURVEILLANCE SOLUTIONS SECTION */}
       <section id="security-solutions" className="py-20 px-4 bg-gray-50">
         <div className="max-w-7xl mx-auto">
@@ -606,11 +539,12 @@ Established in 1978, Joint Circle Company stands as a beacon of excellence in in
               Our commitment to excellence is recognized through international certifications
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-3 gap-8"> {/* Changed from lg:grid-cols-4 to md:grid-cols-3 */}
             {securitySolutions.map((cert, index) => (
               <div
                 key={index}
-                className="group bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+                className="group bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer"
+                onClick={() => setSelectedImage(cert)}
               >
                 <div className="relative aspect-[3/4] mb-4 overflow-hidden rounded-lg">
                   <img
@@ -626,6 +560,28 @@ Established in 1978, Joint Circle Company stands as a beacon of excellence in in
               </div>
             ))}
           </div>
+
+          {/* Image Modal */}
+          {selectedImage && (
+            <div
+              className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4 cursor-pointer"
+              onClick={handleModalClick}
+            >
+              <div className="relative max-w-5xl w-full h-full flex items-center justify-center">
+                <button
+                  className="absolute top-4 right-4 text-white hover:text-yellow-400 transition-colors"
+                  onClick={() => setSelectedImage(null)}
+                >
+                  <X size={32} />
+                </button>
+                <img
+                  src={selectedImage.image}
+                  alt={selectedImage.title}
+                  className="max-w-full max-h-[90vh] object-contain"
+                />
+              </div>
+            </div>
+          )}
         </div>
       </section>
 
@@ -865,6 +821,30 @@ Established in 1978, Joint Circle Company stands as a beacon of excellence in in
             </div>
           </div>
 
+        </div>
+      </section>
+
+      {/* SOME OF OUR CLIENTS SECTION */}
+      <section id="clients" className="py-20 px-4 bg-gradient-to-b from-white to-neutral-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-6 text-neutral-800">Some Of Our Clients</h2>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8">
+            {Array.from({ length: 12 }).map((_, index) => (
+              <div
+                key={index}
+                className="flex items-center justify-center p-8 bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-1"
+              >
+                <img
+                  src={`./images/clients/logo${index + 1}.png`}
+                  alt={`Client Logo ${index + 1}`}
+                  className="max-w-full h-auto object-contain"
+                  style={{ maxHeight: '80px' }}
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
