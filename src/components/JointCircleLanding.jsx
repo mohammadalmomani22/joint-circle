@@ -12,6 +12,12 @@ import {
   X,
   ChevronLeft,
   ChevronRight,
+  Facebook,
+  Instagram,
+  Twitter,
+  Linkedin,
+  Youtube,
+  MessageCircle,
 } from 'lucide-react';
 
 const ATMSecurityLanding = () => {
@@ -127,23 +133,19 @@ CEO, Joint Circle Company`,
     },
     {
       name: 'Eng. Sami Al-Sarraf',
-      position: 'Chairman and Partner',
+      position: ' and Partner',
       message: `Dear Esteemed Clients and Partners,
-
 As Chairman and Partner of Joint Circle Company, I am honored to extend my greetings and share our collective vision and commitment to excellence. Since our foundation in 1978, we have dedicated ourselves to pioneering innovation and quality in infrastructure design and development.
 
 Our journey has been shaped by a deep-rooted commitment to integrity, reliability, and client satisfaction. We take great pride in our ability to deliver projects that not only meet but exceed the expectations of our clients. Our achievements are a testament to the hard work and expertise of our exceptional team, whose unwavering dedication ensures that every project is executed to the highest standards.
 
-At Joint Circle Company, we believe in fostering strong partnerships based on trust, transparency, and mutual respect. Our collaborative approach and commitment to innovation have enabled us to maintain a leading position in the industry. We are proud to be recognized as a Grade "A" company by the Kuwait Municipality, a distinction that reflects our adherence to the highest standards of quality and excellence.
+At Joint Circle Company, we believe in fostering strong partnerships based on trust, transparency, and mutual respect. Our collaborative approach and commitment to innovation have enabled us to maintain a leading position in the industry.
 
 Looking forward, we remain dedicated to advancing our capabilities and embracing new challenges with a focus on sustainability and social responsibility. We are committed to creating a positive impact on the communities we serve and contributing to a more sustainable and prosperous future.
 
 Thank you for your continued trust and support. Together, we will continue to achieve remarkable milestones and build a legacy of excellence.
 
-Warm regards,
-Sami Al-Sarraf
-Chairman and Partner
-Joint Circle Company`,
+Warm regards, Sami AlSarraf  Chairman  Joint Circle Company`,
       image: './images/chairman2.jpg',
     },
   ];
@@ -413,10 +415,10 @@ Joint Circle Company`,
         <div className="relative z-20 h-full flex flex-col items-center justify-center text-white px-4">
           <div className="text-center mb-12 animate-on-scroll backdrop-blur-sm bg-black/20 p-8 rounded-lg">
             <h1 className="text-5xl md:text-6xl font-bold mb-6 text-shadow-lg">
-              Securing Tomorrow's Transactions Today
+              Strength in Every Structure
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-shadow-lg">
-              Industry-leading ATM solutions with unmatched security features
+              Constructing Spaces, Constructing Dreams
             </p>
             {/* Add the new buttons here */}
             <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-8">
@@ -467,9 +469,7 @@ Joint Circle Company`,
               hyphens: 'auto',
               textRendering: 'geometricPrecision',
             }}>
-            Welcome to Joint Circle Company
-
-Established in 1978, Joint Circle Company stands as a beacon of excellence in infrastructure design and development. With over four decades of pioneering expertise, we offer comprehensive services in Civil, Architectural design, Structural engineering, and MEP (Mechanical, Electrical, and Plumbing) solutions. Our commitment to innovation and quality has positioned us as trusted partners across various industries.
+            Joint Circle Company Established in 1978, Joint Circle Company stands as a beacon of excellence in infrastructure design and development. With over four decades of pioneering expertise, we offer comprehensive services in Civil, Architectural design, Structural engineering, and MEP (Mechanical, Electrical, Plumbing) solutions. Our commitment to innovation and quality has positioned us as trusted partners across various industries.
             </p>
           </div>
 
@@ -485,7 +485,7 @@ Established in 1978, Joint Circle Company stands as a beacon of excellence in in
                 />
                 <div>
                   <h3 className="text-2xl font-bold text-neutral-800">{leadership[0].name}</h3>
-                  <p className="text-yellow-400">Chairman</p>
+                  <p className="text-yellow-400">CEO</p>
                 </div>
               </div>
               <p className="text-neutral-600" style={{ 
@@ -511,7 +511,7 @@ Established in 1978, Joint Circle Company stands as a beacon of excellence in in
                 />
                 <div>
                   <h3 className="text-2xl font-bold text-neutral-800">{leadership[1].name}</h3>
-                  <p className="text-yellow-400">CEO</p>
+                  <p className="text-yellow-400">Chairman and Partner</p>
                 </div>
               </div>
               <p className="text-neutral-600" style={{ 
@@ -568,6 +568,34 @@ Established in 1978, Joint Circle Company stands as a beacon of excellence in in
               Our commitment to excellence is recognized through international certifications
             </p>
           </div>
+          
+          {/* Leadership Statement - Moved from Industries section */}
+          <div className="max-w-4xl mx-auto bg-neutral-800 rounded-2xl overflow-hidden shadow-2xl mb-16">
+            <div className="p-8 md:p-12">
+              <div className="flex flex-col items-center">
+                <div className="w-20 h-1 bg-yellow-400 mb-8"></div>
+                <p className="text-lg text-gray-300 leading-relaxed text-center italic">
+                  Under the leadership of{' '}
+                  <span className="text-yellow-400 font-semibold">Mr. Sami Al-Sarraf</span> Chairman, and{' '}
+                  <span className="text-yellow-400 font-semibold">Engr. N. Ahmed Alam</span>, our esteemed CEO,
+                  <span className="block mt-4">
+                    Joint Circle Company is classified as{' '}
+                    <span className="text-yellow-400 font-bold text-xl">Grade "A"</span>{' '}
+                    by the Kuwait Municipality, reflecting our unwavering commitment to excellence and adherence to the highest standards.
+                  </span>
+                </p>
+                <div className="w-20 h-1 bg-yellow-400 my-8"></div>
+                <p className="text-gray-300 leading-relaxed text-center">
+                  At Joint Circle Company, we are dedicated to pushing the boundaries of what is possible,
+                  delivering exceptional projects that drive progress and elevate standards.
+                </p>
+                <p className="text-yellow-400 font-semibold mt-6 text-center text-lg">
+                  Partner with us and be part of our journey as we build a brighter, more sustainable future - one landmark at a time.
+                </p>
+              </div>
+            </div>
+          </div>
+          
           <div className="grid md:grid-cols-3 gap-8"> {/* Changed from lg:grid-cols-4 to md:grid-cols-3 */}
             {securitySolutions.map((cert, index) => (
               <div
@@ -620,7 +648,7 @@ Established in 1978, Joint Circle Company stands as a beacon of excellence in in
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-6 text-neutral-800">Our Projects</h2>
             <p className="text-lg text-neutral-600 max-w-3xl mx-auto">
-              Over 30 years of excellence in construction and infrastructure development
+              Over 47 years of excellence in construction and infrastructure development
             </p>
           </div>
           
@@ -729,7 +757,8 @@ Established in 1978, Joint Circle Company stands as a beacon of excellence in in
               hyphens: 'auto',
               textRendering: 'geometricPrecision',
             }}>
-                With over 47 experienced professionals, we are a full-service project management and infrastructure solutions company. Our expertise spans project management, information and communication technology, contracts, procurement, MEP services, renovation, and safety & security. We specialize in delivering end-to-end solutions, ensuring efficiency, compliance, and quality in every project we undertake.
+                With over 47 experienced professionals, we are a full-service project management and infrastructure solutions company. Our expertise spans project management, information, MEP servi
+                ces, renovation, and safety & security. We specialize in delivering end-to-end solutions, ensuring efficiency, compliance, and quality in every project we undertake.
               </p>
             </div>
             {/* Image */}
@@ -810,11 +839,11 @@ Established in 1978, Joint Circle Company stands as a beacon of excellence in in
         </div>
       </section>
 
-      {/* INDUSTRIES WE SERVE SECTION */}
+      {/* What We Offer SECTION */}
       <section id="industries" className="py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-6 text-neutral-800">Industries We Serve</h2>
+            <h2 className="text-4xl font-bold mb-6 text-neutral-800">What We Offer</h2>
             <p className="text-lg text-neutral-600 max-w-3xl mx-auto">
               Our expertise spans several sectors, ensuring that we meet the diverse needs of our clients with precision and excellence.
             </p>
@@ -856,33 +885,8 @@ Established in 1978, Joint Circle Company stands as a beacon of excellence in in
             ))}
           </div>
           
-          {/* Leadership Statement */}
-          <div className="mt-16 max-w-4xl mx-auto bg-neutral-800 rounded-2xl overflow-hidden shadow-2xl">
-            <div className="p-8 md:p-12">
-              <div className="flex flex-col items-center">
-                <div className="w-20 h-1 bg-yellow-400 mb-8"></div>
-                <p className="text-lg text-gray-300 leading-relaxed text-center italic">
-                  Under the leadership of{' '}
-                  <span className="text-yellow-400 font-semibold">Mr. Sami Al-Sarraf</span> Chairman, and{' '}
-                  <span className="text-yellow-400 font-semibold">Engr. N. Ahmed Alam</span>, our esteemed CEO,
-                  <span className="block mt-4">
-                    Joint Circle Company is classified as{' '}
-                    <span className="text-yellow-400 font-bold text-xl">Grade "A"</span>{' '}
-                    by the Kuwait Municipality, reflecting our unwavering commitment to excellence and adherence to the highest standards.
-                  </span>
-                </p>
-                <div className="w-20 h-1 bg-yellow-400 my-8"></div>
-                <p className="text-gray-300 leading-relaxed text-center">
-                  At Joint Circle Company, we are dedicated to pushing the boundaries of what is possible,
-                  delivering exceptional projects that drive progress and elevate standards.
-                </p>
-                <p className="text-yellow-400 font-semibold mt-6 text-center text-lg">
-                  Partner with us and be part of our journey as we build a brighter, more sustainable future - one landmark at a time.
-                </p>
-              </div>
-            </div>
-          </div>
-
+          {/* Leadership Statement - Removed from here and moved to Certificates section */}
+          
         </div>
       </section>
 
@@ -916,7 +920,8 @@ Established in 1978, Joint Circle Company stands as a beacon of excellence in in
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-6 text-neutral-800">Get in Touch</h2>
             <p className="text-lg text-neutral-600 max-w-3xl mx-auto">
-              Ready to enhance your ATM security? Contact our team of experts today.
+              Ready to elevate your building's safety and structural integrity?<br/>
+              Contact our team of experts today for professional engineering solutions.
             </p>
           </div>
           <div className="grid md:grid-cols-2 gap-8">
@@ -934,14 +939,17 @@ Established in 1978, Joint Circle Company stands as a beacon of excellence in in
                     <h4 className="font-bold mb-2">Location</h4>
                     <p>P.O. Box 1456</p>
                     <p>Al-Farwaniya 81025, Kuwait</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-4">
-                  <Building2 className="h-6 w-6 text-yellow-400 flex-shrink-0 mt-1" />
-                  <div>
-                    <h4 className="font-bold mb-2">Head Office</h4>
-                    <p>Kuwait City, Block 12</p>
-                    <p>Building 7, Floor 3</p>
+                    <a 
+                      href="https://www.google.com/maps/dir//Ali+Fahed+Al-Dewailah+Street,+Al+Farwaniyah+81025,+Kuwait/@29.2826063,47.8797259,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3fcf9b5464ac0d81:0xfe20ce186fba25f3!2m2!1d47.9621273!2d29.2826316?entry=ttu&g_ep=EgoyMDI1MDUwNy4wIKXMDSoJLDEwMjExNDU1SAFQAw%3D%3D" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center mt-3 px-4 py-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-lg shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-300"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                        <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+                      </svg>
+                      View on Google Maps
+                    </a>
                   </div>
                 </div>
               </div>
@@ -976,9 +984,54 @@ Established in 1978, Joint Circle Company stands as a beacon of excellence in in
                       href="http://www.joint-circle.com"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-yellow-400 hover:underline"
+                      className="text-neutral-800 hover:underline font-medium"
                     >
                       www.joint-circle.com
+                    </a>
+                  </div>
+                </div>
+                
+                {/* Social Media Icons */}
+                <div className="pt-4 border-t border-gray-200">
+                  <h4 className="font-bold mb-3">Follow Us</h4>
+                  <div className="flex space-x-4">
+                    <a href="#" className="text-[#3b5998] hover:opacity-80 transition-opacity">
+                      <Facebook size={24} />
+                    </a>
+                    <a href="#" className="text-[#c32aa3] hover:opacity-80 transition-opacity">
+                      <Instagram size={24} />
+                    </a>
+                    <a href="#" className="text-[#1da1f2] hover:opacity-80 transition-opacity">
+                      <Twitter size={24} />
+                    </a>
+                    <a href="#" className="text-[#000000] hover:opacity-80 transition-opacity">
+                      <div className="w-6 h-6">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                        </svg>
+                      </div>
+                    </a>
+                  </div>
+                  <div className="flex space-x-4 mt-3">
+                    <a href="#" className="text-[#ff0000] hover:opacity-80 transition-opacity">
+                      <Youtube size={24} />
+                    </a>
+                    <a href="#" className="text-[#0088cc] hover:opacity-80 transition-opacity">
+                      <div className="w-6 h-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                        </svg>
+                      </div>
+                    </a>
+                    <a href="#" className="text-[#25D366] hover:opacity-80 transition-opacity">
+                      <div className="w-6 h-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                          <path fillRule="evenodd" clipRule="evenodd" d="M20.452 3.551C18.212 1.31 15.211 0.003 12.05 0.003C5.428 0.003 0.035 5.396 0.035 12.018C0.035 14.143 0.612 16.233 1.787 18.001L0 24.003L6.242 22.253C7.936 23.342 9.965 23.916 12.042 23.916H12.05C18.672 23.916 24.065 18.523 24.065 11.901C24.065 8.74 22.758 5.739 20.452 3.551ZM12.05 21.921H12.042C10.215 21.921 8.431 21.368 6.886 20.356L6.538 20.149L2.835 21.165L3.883 17.578L3.648 17.211C2.532 15.613 1.938 13.762 1.938 11.85C1.938 6.439 6.471 1.998 12.058 1.998C14.678 1.998 17.148 3.075 18.999 5.009C20.849 6.943 21.934 9.413 21.926 12.033C21.926 17.452 17.661 21.921 12.05 21.921ZM17.482 14.525C17.189 14.366 15.729 13.647 15.452 13.554C15.184 13.455 14.993 13.413 14.794 13.714C14.602 14.015 14.033 14.683 13.867 14.875C13.701 15.074 13.535 15.091 13.241 14.925C11.271 13.94 9.997 13.169 8.715 10.916C8.364 10.306 8.944 10.356 9.485 9.274C9.578 9.082 9.536 8.915 9.468 8.765C9.401 8.614 8.838 7.154 8.604 6.56C8.371 5.982 8.138 6.057 7.963 6.049C7.797 6.041 7.606 6.041 7.414 6.041C7.223 6.041 6.913 6.108 6.645 6.4C6.377 6.701 5.608 7.42 5.608 8.889C5.608 10.357 6.662 11.776 6.804 11.968C6.946 12.167 8.829 15.082 11.729 16.367C13.734 17.217 14.544 17.284 15.603 17.134C16.249 17.041 17.415 16.407 17.648 15.712C17.881 15.025 17.881 14.431 17.814 14.314C17.748 14.198 17.557 14.131 17.265 13.972L17.482 14.525Z" />
+                        </svg>
+                      </div>
+                    </a>
+                    <a href="#" className="text-[#0077b5] hover:opacity-80 transition-opacity">
+                      <Linkedin size={24} />
                     </a>
                   </div>
                 </div>
