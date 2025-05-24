@@ -1121,7 +1121,7 @@ Warm regards, Sami AlSarraf  Chairman  Joint Circle Company`,
             </div>
           </div>
           <div className="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
-            <p>&copy; {new Date().getFullYear()} Joint Circle. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} Joint Circle. Powerd by Ghost.</p>
           </div>
         </div>
       </footer>
