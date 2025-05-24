@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import {
   Building2,
   Users,
@@ -28,11 +28,18 @@ const ATMSecurityLanding = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [activeCard, setActiveCard] = useState(null);
 
+  // New states for navbar visibility
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const [visible, setVisible] = useState(true);
+  
   // Carousel state for Security & Portfolio sections
   const [securityIndex, setSecurityIndex] = useState(0);
   const [portfolioIndex, setPortfolioIndex] = useState(0);
   const [carouselVisibleCount, setCarouselVisibleCount] = useState(6);
   const [currentBanner, setCurrentBanner] = useState(1);
+  
+  // Track last scroll position to determine direction
+  const lastScrollY = useRef(0);
   
   const bannerImages = [
     './images/banner.jpeg',
@@ -180,24 +187,24 @@ Warm regards, Sami AlSarraf  Chairman  Joint Circle Company`,
 
   const industries = [
     {
-      title: 'Banking',
+      title: 'Aluminium Excellence',
       overview:
-        'The banking sector is a cornerstone of the global economy, providing essential financial services to individuals, businesses, and governments. It facilitates economic growth by offering a range of services, including savings and checking accounts, loans, mortgages, investment products, and payment processing. Banks also play a critical role in the monetary policy and financial stability of a country. Developing a secure, innovative banking infrastructure that supports financial growth and stability',
+        'Renowned for our precision engineering, we bring your visions to life through high-quality aluminum fabrication and installation services. From architectural facades to customized components, our aluminium solutions are durable, aesthetically striking, flexibly designed, eco friendly and of low-maintenance. We offer Aluminum Doors & Windows, Curtain Walls, Partitions, Showcases, Handrails & Balustrades, Ladders, Facades, Structural Aluminum for roofing, cladding, and other architectural applications to residential and commercial construction, hospitality and retail spaces, infrastructure projects and industrial applications. We are committed to exceeding client expectations by providing tailored solutions, premium quality materials, exceptional craftsmanship and end-to-end service.',
     },
     {
-      title: 'Offshore and Onshore Security',
+      title: 'Space Frame Solutions',
       overview:
-      ' Security involves protecting assets, infrastructure, and personnel located in offshore environments, such as oil rigs, drilling platforms, and maritime vessels. The primary focus is on safeguarding these assets firom various threats, including piracy, terrorism, and natural disasters. Implementing comprehensive security solutions for diverse and challenging environments',
+      'We specialize in designing, manufacturing, and installing innovative space frame structures that redefine architectural possibilities. These three-dimensional, lightweight structural systems composed of interconnected struts and nodes are known for their ability to span large distances without interior supports. They are perfect for creating wide, open spaces that enhance functionality and design. Our space frames offer an ideal combination of strength, flexibility, aesthetic appeal, optimal performance making them the preferred choice for modern construction projects ranging from large-span roofs to unique architectural concepts in airports, exhibition halls, and commercial buildings. We pride ourselves in the engineering team offering custom design, high-quality fabrication and hassle-free project execution using state-of-the art technology and premium materials.',
     },
     {
-      title: 'Industrial',
+      title: 'Premium Raised Floors',
       overview:
-      'The industrial sector encompasses a wide range of activities related to the manufacturing and production of goods. This sector is a critical driver of economic growth, providing essential products and services that support other industries and contribute to the overall development of a country. It includes various subsectors, such as manufacturing, energy, mining, and construction. Enhancing operational efficiency and safety within industrial sectors through tailored engineering solutions.',
+      'We provide cutting-edge raised flooring systems that are perfect for accommodating wiring, cabling, air distribution for dynamic spaces that require frequent reconfiguration. Raised floors are elevated structural platforms installed above the original floors to seamlessly manage and access cables, wires, and utilities without disrupting operations, to optimize HVAC efficiency by channeling air through the under floor system, to endure heavy loads and withstand wear and tear. We offer expert installation services, ongoing assistance, futuristic raised flooring systems that enhance functionality, flexibility, and style in modern offices, data centers, control rooms, educational institutions and other industrial spaces.',
     },
     {
-      title: 'Oil and Gas',
+      title: 'Wooden Elegance',
       overview:
-      'The oil and gas industry is a major global sector that involves exploration, extraction, refining, transportation, and marketing of petroleum products. It plays a critical role in the global economy, providing energy for transportation, heating, electricity generation, and as taw mate. d om and downstream. Addressing generation, and as raw materials for various industries. The industry is divided into three main segments: upstream, midstream, and downstream. Addressing the unique challenges of the oil and gas industry with cutting-edge, reliable solutions.',
+      'Craftsmanship meets elegance in our wooden works. From bespoke furniture and cabinetry to interior wood finishes, we bring warmth and sophistication to every project, tailored to your exact specifications. Our offerings include custom furniture for offices and residences: For structural applications like timber framing, roofing and trusses, flooring, For functional applications like wooden dividers, wooden frames and shutters for doors and windows, cabinetry and shelving, For architectural and decorative applications like paneling, moldings and trim, custom furniture, For outdoor applications like decking and pergolas, fencing and gates, exterior cladding',
     },
   ];
 
@@ -337,6 +344,32 @@ Warm regards, Sami AlSarraf  Chairman  Joint Circle Company`,
     }
   };
 
+  // New useEffect for handling navbar visibility on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollPos = window.scrollY;
+      
+      // Determine scroll direction and distance
+      const isScrolledDown = currentScrollPos > lastScrollY.current;
+      const scrollDistance = Math.abs(currentScrollPos - lastScrollY.current);
+      
+      // Only hide/show navbar if scrolled enough (prevents jitter)
+      if (scrollDistance > 10) {
+        // Show navbar when scrolling up or at the top
+        // Hide navbar when scrolling down and not at the top
+        setVisible(!isScrolledDown || currentScrollPos < 100);
+        lastScrollY.current = currentScrollPos;
+      }
+      
+      // Update scroll progress regardless of direction
+      const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
+      setScrollProgress((currentScrollPos / totalScroll) * 100);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <div className="min-h-screen bg-white">
       {/* Scroll Progress Bar */}
@@ -344,15 +377,17 @@ Warm regards, Sami AlSarraf  Chairman  Joint Circle Company`,
         <div className="h-full bg-yellow-400 transition-width duration-300" style={{ width: `${scrollProgress}%` }} />
       </div>
 
-      {/* NAVIGATION */}
-      <nav className="fixed w-full bg-opacity-90 bg-neutral-800 text-white z-50">
+      {/* NAVIGATION - Modified with transition classes */}
+      <nav className={`fixed w-full bg-opacity-90 bg-neutral-800 text-white z-50 transition-transform duration-300 ${
+        visible ? 'translate-y-0' : '-translate-y-full'
+      }`}>
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex justify-between items-center h-24">
             <div className="flex items-center">
               <img
                 src="./images/company-logo.png"
                 alt="ATM Security Solutions Logo"
-                className="h-32 w-auto transform scale-110" // Changed from h-24 to h-32
+                className="h-24 w-auto my-2"
               />
             </div>
             <div className="hidden md:flex space-x-8">
@@ -378,10 +413,11 @@ Warm regards, Sami AlSarraf  Chairman  Joint Circle Company`,
         </div>
       </nav>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu - Modified to appear even when navbar is hidden */}
       <div
-        className={`md:hidden fixed inset-0 z-40 bg-neutral-800 bg-opacity-95 transform ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
-          } transition-transform duration-300`}
+        className={`md:hidden fixed inset-0 z-40 bg-neutral-800 bg-opacity-95 transform ${
+          mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+        } transition-transform duration-300`}
       >
         <div className="flex flex-col items-center justify-center h-full space-y-8">
           {navLinks.map((link) => (
@@ -896,8 +932,8 @@ Warm regards, Sami AlSarraf  Chairman  Joint Circle Company`,
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-6 text-neutral-800">Some Of Our Clients</h2>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8">
-            {Array.from({ length: 12 }).map((_, index) => (
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8">
+            {Array.from({ length: 18 }).map((_, index) => (
               <div
                 key={index}
                 className="flex items-center justify-center p-8 bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-1"
@@ -1090,7 +1126,7 @@ Warm regards, Sami AlSarraf  Chairman  Joint Circle Company`,
         </div>
       </footer>
 
-      {/* ANIMATION STYLES */}
+      {/* ANIMATION STYLES - Add transition for navbar */}
       <style>{`
         .animate-on-scroll {
           opacity: 0;
@@ -1106,6 +1142,9 @@ Warm regards, Sami AlSarraf  Chairman  Joint Circle Company`,
         }
         .group:hover img {
           transform: scale(1.05);
+        }
+        .transition-width {
+          transition-property: width;
         }
       `}</style>
     </div>
