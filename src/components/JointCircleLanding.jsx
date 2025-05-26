@@ -123,25 +123,27 @@ const ATMSecurityLanding = () => {
       position: 'CEO',
       message: `Dear Valued Clients and Partners,
 
-Welcome to Joint Circle Company. It is with great pride and enthusiasm that I reflect on our journey of excellence and innovation since our establishment in 1978. Over the years, we have consistently set new benchmarks in infrastructure design and development, driven by our unwavering commitment to quality and integrity.
+Is with great pride and enthusiasm that I reflect on our journey of excellence and innovation since our establishment in 1978. Over the years, we have consistently set new benchmarks in infrastructure design and development, driven by our unwavering commitment to quality and integrity.
 
 Our success is built on the foundation of our dedicated team, whose expertise and dedication have been instrumental in delivering exceptional results for our clients. At Joint Circle Company, we leverage cutting-edge technology and innovative solutions to address the diverse needs of our clients, ensuring their projects are completed to the highest standards.
 
-We are honored to be recognized as a Grade "A" company by the Kuwait Municipality under my leadership. This distinction reflects our steadfast commitment to excellence and adherence to the highest standards in all our endeavors.
+We are honored to be recognized as a Grade "A" company by the Kuwait Municipality under my leadership. This distinction reflects our steadfast commitment to excellence and adherence to the highest standards.
 
-Looking ahead, we are focused on fostering a culture of continuous improvement, sustainability, and social responsibility. Our goal is to not only meet but exceed the expectations of our clients, partners, and the communities we serve. We are dedicated to building a brighter, more sustainable future, one landmark at a time.
+We are focused on fostering a culture of continuous improvement, sustainability, and social responsibility. Our goal is to not only meet but exceed the expectations of our clients, partners, and the communities we serve. We are dedicated to building a brighter, more sustainable future, one landmark at a time.
 
 Thank you for your continued support and trust in Joint Circle Company. Together, we will achieve remarkable milestones and contribute positively to the world.
 
 Warm regards,
 Engr. N. Ahmed Alam
-CEO, Joint Circle Company`,
+CEO, Joint Circle Company
+`,
       image: './images/chairman1.jpg',
     },
     {
       name: 'Eng. Sami Al-Sarraf',
       position: ' and Partner',
       message: `Dear Esteemed Clients and Partners,
+      
 As Chairman and Partner of Joint Circle Company, I am honored to extend my greetings and share our collective vision and commitment to excellence. Since our foundation in 1978, we have dedicated ourselves to pioneering innovation and quality in infrastructure design and development.
 
 Our journey has been shaped by a deep-rooted commitment to integrity, reliability, and client satisfaction. We take great pride in our ability to deliver projects that not only meet but exceed the expectations of our clients. Our achievements are a testament to the hard work and expertise of our exceptional team, whose unwavering dedication ensures that every project is executed to the highest standards.
@@ -152,7 +154,8 @@ Looking forward, we remain dedicated to advancing our capabilities and embracing
 
 Thank you for your continued trust and support. Together, we will continue to achieve remarkable milestones and build a legacy of excellence.
 
-Warm regards, Sami AlSarraf  Chairman  Joint Circle Company`,
+Warm regards, Sami AlSarraf Chairman Joint Circle Company
+`,
       image: './images/chairman2.jpg',
     },
   ];
@@ -377,61 +380,41 @@ Warm regards, Sami AlSarraf  Chairman  Joint Circle Company`,
         <div className="h-full bg-yellow-400 transition-width duration-300" style={{ width: `${scrollProgress}%` }} />
       </div>
 
-      {/* NAVIGATION - Modified with transition classes */}
-      <nav className={`fixed w-full bg-opacity-90 bg-neutral-800 text-white z-50 transition-transform duration-300 ${
-        visible ? 'translate-y-0' : '-translate-y-full'
-      }`}>
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="flex justify-between items-center h-24">
-            <div className="flex items-center">
-              <img
-                src="./images/company-logo.png"
-                alt="ATM Security Solutions Logo"
-                className="h-24 w-auto my-2"
-              />
-            </div>
-            <div className="hidden md:flex space-x-8">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={`#${link.section}`}
-                  className="relative overflow-hidden before:absolute before:bottom-0 before:left-0 before:w-full before:h-0.5 before:bg-yellow-400 before:transform before:scale-x-0 before:origin-left before:transition-transform before:duration-300 hover:before:scale-x-100 text-gray-300 hover:text-yellow-400 transition-colors duration-200"
-                >
-                  {link.name}
-                </a>
-              ))}
-            </div>
-            {/* Hamburger Menu Button */}
-            <button
-              className="md:hidden p-2"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label="Toggle navigation menu"
-            >
-              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
-        </div>
-      </nav>
+ {/* NAVIGATION — logo flush with top & bottom */}
+<nav className="fixed w-full bg-opacity-95 bg-neutral-800 text-white z-50 relative h-32 border-b border-neutral-700">
+  {/* logo pinned at left, spanning the full 32px nav height */}
+  <div className="absolute left-12 top-0 bottom-0 flex items-center">
+    <img
+      src="./images/company-logo.png"
+      alt="Joint Circle Company Logo"
+      className="h-full w-auto transform transition-all duration-500 hover:scale-105 filter drop-shadow-lg"
+    />
+  </div>
 
-      {/* Mobile Menu - Modified to appear even when navbar is hidden */}
-      <div
-        className={`md:hidden fixed inset-0 z-40 bg-neutral-800 bg-opacity-95 transform ${
-          mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
-        } transition-transform duration-300`}
-      >
-        <div className="flex flex-col items-center justify-center h-full space-y-8">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={`#${link.section}`}
-              className="relative overflow-hidden before:absolute before:bottom-0 before:left-0 before:w-full before:h-0.5 before:bg-yellow-400 before:transform before:scale-x-0 before:origin-left before:transition-transform before:duration-300 hover:before:scale-x-100 text-white text-2xl"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              {link.name}
-            </a>
-          ))}
-        </div>
-      </div>
+  {/* links & hamburger vertically centered in that same 32px */}
+  <div className="max-w-7xl mx-auto px-6 md:px-4 flex justify-end items-center h-full">
+    <div className="hidden md:flex space-x-8">
+      {navLinks.map(link => (
+        <a
+          key={link.name}
+          href={`#${link.section}`}
+          className="relative px-4 py-0 font-medium text-gray-300 hover:text-yellow-400 hover:bg-white/10 rounded-lg transition-all duration-300"
+        >
+          {link.name}
+          <span className="absolute bottom-0 left-0 w-full h-0.5 bg-yellow-400 scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100"/>
+        </a>
+      ))}
+    </div>
+
+    <button
+      className="md:hidden p-2 rounded hover:bg-white/10 transition-colors duration-300 ml-4"
+      onClick={() => setMobileMenuOpen(o => !o)}
+      aria-label="Toggle navigation menu"
+    >
+      {mobileMenuOpen ? <X size={24}/> : <Menu size={24}/>}
+    </button>
+  </div>
+</nav>
 
       {/* HERO */}
       <div className="relative h-screen overflow-hidden">
@@ -448,7 +431,7 @@ Warm regards, Sami AlSarraf  Chairman  Joint Circle Company`,
             />
           ))}
         </div>
-        <div className="relative z-20 h-full flex flex-col items-center justify-center text-white px-4">
+        <div className="relative z-20 h-full flex flex-col items-center justify-center text-white px-4 pt-32">
           <div className="text-center mb-12 animate-on-scroll backdrop-blur-sm bg-black/20 p-8 rounded-lg">
             <h1 className="text-5xl md:text-6xl font-bold mb-6 text-shadow-lg">
               Strength in Every Structure
@@ -505,7 +488,7 @@ Warm regards, Sami AlSarraf  Chairman  Joint Circle Company`,
               hyphens: 'auto',
               textRendering: 'geometricPrecision',
             }}>
-            Joint Circle Company Established in 1978, Joint Circle Company stands as a beacon of excellence in infrastructure design and development. With over four decades of pioneering expertise, we offer comprehensive services in Civil, Architectural design, Structural engineering, and MEP (Mechanical, Electrical, Plumbing) solutions. Our commitment to innovation and quality has positioned us as trusted partners across various industries.
+              Joint Circle Company Established in 1978, stands as a beacon of excellence in infrastructure design and development. With over four decades of pioneering expertise, we offer comprehensive services in Civil, Architectural design, Structural engineering, and MEP (Mechanical, Electrical, Plumbing) solutions. Our commitment to innovation and quality has positioned us as trusted partners across various industries.
             </p>
           </div>
 
@@ -611,13 +594,10 @@ Warm regards, Sami AlSarraf  Chairman  Joint Circle Company`,
               <div className="flex flex-col items-center">
                 <div className="w-20 h-1 bg-yellow-400 mb-8"></div>
                 <p className="text-lg text-gray-300 leading-relaxed text-center italic">
-                  Under the leadership of{' '}
-                  <span className="text-yellow-400 font-semibold">Mr. Sami Al-Sarraf</span> Chairman, and{' '}
-                  <span className="text-yellow-400 font-semibold">Engr. N. Ahmed Alam</span>, our esteemed CEO,
+                  Under the expert guidance of{' '}
+                  <span className="text-yellow-400 font-semibold">Mr. Fadi Nasr</span> as partner,
                   <span className="block mt-4">
-                    Joint Circle Company is classified as{' '}
-                    <span className="text-yellow-400 font-bold text-xl">Grade "A"</span>{' '}
-                    by the Kuwait Municipality, reflecting our unwavering commitment to excellence and adherence to the highest standards.
+                    our company specialises in delivering high-quality services across diverse domains, including aluminum works, raised flooring systems, and space frame structures, in addition to the manufacture of interior wooden crafts in all its forms.
                   </span>
                 </p>
                 <div className="w-20 h-1 bg-yellow-400 my-8"></div>
@@ -930,17 +910,20 @@ Warm regards, Sami AlSarraf  Chairman  Joint Circle Company`,
       <section id="clients" className="py-20 px-4 bg-gradient-to-b from-white to-neutral-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-6 text-neutral-800">Some Of Our Clients</h2>
+            <h2 className="text-4xl font-bold mb-6 text-neutral-800">Our Partners & Suppliers</h2>
+            <p className="text-lg text-neutral-600 max-w-3xl mx-auto">
+              We work with trusted partners to deliver exceptional results for our clients
+            </p>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8">
-            {Array.from({ length: 18 }).map((_, index) => (
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            {[13, 14, 15, 16, 17, 18].map((logoNumber) => (
               <div
-                key={index}
+                key={logoNumber}
                 className="flex items-center justify-center p-8 bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-1"
               >
                 <img
-                  src={`./images/clients/logo${index + 1}.png`}
-                  alt={`Client Logo ${index + 1}`}
+                  src={`./images/clients/logo${logoNumber}.png`}
+                  alt={`Partner Logo ${logoNumber}`}
                   className="max-w-full h-auto object-contain"
                   style={{ maxHeight: '80px' }}
                 />
@@ -973,8 +956,10 @@ Warm regards, Sami AlSarraf  Chairman  Joint Circle Company`,
                   <MapPin className="h-6 w-6 text-yellow-400 flex-shrink-0 mt-1" />
                   <div>
                     <h4 className="font-bold mb-2">Location</h4>
-                    <p>P.O. Box 1456</p>
-                    <p>Al-Farwaniya 81025, Kuwait</p>
+                    <p>Farwaniya, Block 1</p>
+                    <p>Ali Aldowaila Street</p>
+                    <p>Al Jary Center</p>
+                    <p>Floor 5</p>
                     <a 
                       href="https://www.google.com/maps/dir//Ali+Fahed+Al-Dewailah+Street,+Al+Farwaniyah+81025,+Kuwait/@29.2826063,47.8797259,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3fcf9b5464ac0d81:0xfe20ce186fba25f3!2m2!1d47.9621273!2d29.2826316?entry=ttu&g_ep=EgoyMDI1MDUwNy4wIKXMDSoJLDEwMjExNDU1SAFQAw%3D%3D" 
                       target="_blank" 
@@ -1084,8 +1069,8 @@ Warm regards, Sami AlSarraf  Chairman  Joint Circle Company`,
             <div>
               <img
                 src="./images/company-logo-white.png"
-                alt="ATM Security Solutions"
-                className="h-32 w-auto mb-2 transform transition-all duration-500 hover:scale-110 hover:rotate-2" // Changed h-12 to h-24 and mb-4 to mb-6
+                alt="Joint Circle Company"
+                className="h-36 w-auto mb-4 transform transition-all duration-500 hover:scale-110 hover:rotate-2"
               />
               <p className="text-gray-400">
                 Leading provider of infrastructure design and development solutions.
@@ -1145,6 +1130,25 @@ Warm regards, Sami AlSarraf  Chairman  Joint Circle Company`,
         }
         .transition-width {
           transition-property: width;
+        }
+        
+        /* Enhanced navbar styling */
+        nav {
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Logo styling enhancements */
+        nav img {
+          filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+        }
+        
+        /* Backdrop blur support */
+        .backdrop-blur-md {
+          backdrop-filter: blur(12px);
+        }
+        
+        .backdrop-blur-lg {
+          backdrop-filter: blur(16px);
         }
       `}</style>
     </div>
