@@ -414,6 +414,24 @@ Warm regards, Sami AlSarraf Chairman Joint Circle Company
       {mobileMenuOpen ? <X size={24}/> : <Menu size={24}/>}
     </button>
   </div>
+  
+  {/* Mobile menu - add this new block */}
+  {mobileMenuOpen && (
+    <div className="md:hidden absolute top-full left-0 right-0 bg-neutral-800 border-t border-neutral-700 shadow-lg z-50">
+      <div className="flex flex-col p-4 space-y-3">
+        {navLinks.map(link => (
+          <a
+            key={link.name}
+            href={`#${link.section}`}
+            className="px-4 py-2 font-medium text-gray-300 hover:text-yellow-400 hover:bg-white/10 rounded-lg transition-all duration-300"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            {link.name}
+          </a>
+        ))}
+      </div>
+    </div>
+  )}
 </nav>
 
       {/* HERO */}
