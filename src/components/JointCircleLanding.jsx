@@ -380,15 +380,16 @@ Warm regards, Sami AlSarraf Chairman Joint Circle Company
         <div className="h-full bg-yellow-400 transition-width duration-300" style={{ width: `${scrollProgress}%` }} />
       </div>
 
- {/* NAVIGATION — logo flush with top & bottom */}
-<nav className="fixed w-full bg-opacity-95 bg-neutral-800 text-white z-50 relative h-32 border-b border-neutral-700">
-  {/* logo pinned at left, spanning the full 32px nav height */}
-  <div className="absolute left-12 top-0 bottom-0 flex items-center">
-    <img
-      src="./images/company-logo.png"
-      alt="Joint Circle Company Logo"
-      className="h-full w-auto transform transition-all duration-500 hover:scale-105 filter drop-shadow-lg"
-    />
+ {/* NAVIGATION — logo flush with top & bottom */} 
+<nav className="fixed w-full bg-opacity-95 bg-neutral-800 text-white z-50 relative h-32 border-b border-neutral-700"> 
+  {/* logo pinned at left, spanning the full nav height - increased container size */} 
+  <div className="absolute left-4 top-0 bottom-4 flex items-center h-full py-2"> 
+    <img 
+      src="./images/company-logo.png" 
+      alt="Joint Circle Company Logo" 
+      className="h-full max-h-50 w-auto max-w-[460px] transform transition-all duration-500 hover:scale-105 filter drop-shadow-lg" 
+      style={{ width: 'auto', height: 'auto', maxHeight: '300px' }} 
+    /> 
   </div>
 
   {/* links & hamburger vertically centered in that same 32px */}
