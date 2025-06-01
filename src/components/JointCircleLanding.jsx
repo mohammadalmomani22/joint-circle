@@ -607,30 +607,6 @@ Warm regards, Sami AlSarraf Chairman Joint Circle Company
             </p>
           </div>
           
-          {/* Leadership Statement - Moved from Industries section */}
-          <div className="max-w-4xl mx-auto bg-neutral-800 rounded-2xl overflow-hidden shadow-2xl mb-16">
-            <div className="p-8 md:p-12">
-              <div className="flex flex-col items-center">
-                <div className="w-20 h-1 bg-yellow-400 mb-8"></div>
-                <p className="text-lg text-gray-300 leading-relaxed text-center italic">
-                  Under the expert guidance of{' '}
-                  <span className="text-yellow-400 font-semibold">Mr. Fadi Nasr</span> as partner,
-                  <span className="block mt-4">
-                    our company specialises in delivering high-quality services across diverse domains, including aluminum works, raised flooring systems, and space frame structures, in addition to the manufacture of interior wooden crafts in all its forms.
-                  </span>
-                </p>
-                <div className="w-20 h-1 bg-yellow-400 my-8"></div>
-                <p className="text-gray-300 leading-relaxed text-center">
-                  At Joint Circle Company, we are dedicated to pushing the boundaries of what is possible,
-                  delivering exceptional projects that drive progress and elevate standards.
-                </p>
-                <p className="text-yellow-400 font-semibold mt-6 text-center text-lg">
-                  Partner with us and be part of our journey as we build a brighter, more sustainable future - one landmark at a time.
-                </p>
-              </div>
-            </div>
-          </div>
-          
           <div className="grid md:grid-cols-3 gap-8"> {/* Changed from lg:grid-cols-4 to md:grid-cols-3 */}
             {securitySolutions.map((cert, index) => (
               <div
@@ -883,6 +859,31 @@ Warm regards, Sami AlSarraf Chairman Joint Circle Company
               Our expertise spans several sectors, ensuring that we meet the diverse needs of our clients with precision and excellence.
             </p>
           </div>
+          
+          {/* Leadership Statement - Moved to here from Certificates section */}
+          <div className="max-w-4xl mx-auto bg-neutral-800 rounded-2xl overflow-hidden shadow-2xl mb-16">
+            <div className="p-8 md:p-12">
+              <div className="flex flex-col items-center">
+                <div className="w-20 h-1 bg-yellow-400 mb-8"></div>
+                <p className="text-lg text-gray-300 leading-relaxed text-center italic">
+                  Under the expert guidance of{' '}
+                  <span className="text-yellow-400 font-semibold">Mr. Fadi Nasr</span> as partner,
+                  <span className="block mt-4">
+                    our company specialises in delivering high-quality services across diverse domains, including aluminum works, raised flooring systems, and space frame structures, in addition to the manufacture of interior wooden crafts in all its forms.
+                  </span>
+                </p>
+                <div className="w-20 h-1 bg-yellow-400 my-8"></div>
+                <p className="text-gray-300 leading-relaxed text-center">
+                  At Joint Circle Company, we are dedicated to pushing the boundaries of what is possible,
+                  delivering exceptional projects that drive progress and elevate standards.
+                </p>
+                <p className="text-yellow-400 font-semibold mt-6 text-center text-lg">
+                  Partner with us and be part of our journey as we build a brighter, more sustainable future - one landmark at a time.
+                </p>
+              </div>
+            </div>
+          </div>
+          
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
             {industries.map((industry, index) => (
               <div
@@ -919,9 +920,6 @@ Warm regards, Sami AlSarraf Chairman Joint Circle Company
               </div>
             ))}
           </div>
-          
-          {/* Leadership Statement - Removed from here and moved to Certificates section */}
-          
         </div>
       </section>
 
