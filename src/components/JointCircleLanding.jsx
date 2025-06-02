@@ -607,6 +607,31 @@ Warm regards, Sami AlSarraf Chairman Joint Circle Company
             </p>
           </div>
           
+          {/* Leadership Statement two */}
+          <div className="max-w-4xl mx-auto bg-neutral-800 rounded-2xl overflow-hidden shadow-2xl mb-16">
+            <div className="p-8 md:p-12">
+              <div className="flex flex-col items-center">
+                <div className="w-20 h-1 bg-yellow-400 mb-8"></div>
+                <p className="text-lg text-gray-300 leading-relaxed text-center">
+                  Under the leadership of{' '}
+                  <span className="text-yellow-400 font-semibold">Eng. Ahmad Alam</span> and{' '}
+                  <span className="text-yellow-400 font-semibold">Eng. Sami Al Sarraf</span>,
+                  the Joint Circle continues its magnificent success and effectively achieves the classification of <span className="text-yellow-400 font-semibold">"GRADE A"</span> by the Kuwaiti Municipality.
+                </p>
+                <div className="w-20 h-1 bg-yellow-400 my-8"></div>
+                <p className="text-gray-300 leading-relaxed text-center">
+                  This massive success was due to the commitment towards excellence in the height standards of delivering the best services & work fulfillments.
+                </p>
+                <p className="text-gray-300 mt-6 text-center">
+                  Our mission was focused on dedication throughout our experienced engineers & managers working continually to position Joint Circle as the leader in the pioneer construction & finishing projects.
+                </p>
+                <p className="text-yellow-400 font-semibold mt-6 text-center text-lg">
+                  Partner with us and be part of our journey as we build a brighter, more sustainable future – one landmark at a time.
+                </p>
+              </div>
+            </div>
+          </div>
+          
           <div className="grid md:grid-cols-3 gap-8"> {/* Changed from lg:grid-cols-4 to md:grid-cols-3 */}
             {securitySolutions.map((cert, index) => (
               <div
@@ -865,21 +890,20 @@ Warm regards, Sami AlSarraf Chairman Joint Circle Company
             <div className="p-8 md:p-12">
               <div className="flex flex-col items-center">
                 <div className="w-20 h-1 bg-yellow-400 mb-8"></div>
-                <p className="text-lg text-gray-300 leading-relaxed text-center">
-                  Under the leadership of{' '}
-                  <span className="text-yellow-400 font-semibold">Eng. Ahmad Alam</span> and{' '}
-                  <span className="text-yellow-400 font-semibold">Eng. Sami Al Sarraf</span>,
-                  the Joint Circle continues its magnificent success and effectively achieves the classification of <span className="text-yellow-400 font-semibold">"GRADE A"</span> by the Kuwaiti Municipality.
+                <p className="text-lg text-gray-300 leading-relaxed text-center italic">
+                  Under the expert guidance of{' '}
+                  <span className="text-yellow-400 font-semibold">Mr. Fadi Nasr</span> as partner,
+                  <span className="block mt-4">
+                    our company specialises in delivering high-quality services across diverse domains, including aluminum works, raised flooring systems, and space frame structures, in addition to the manufacture of interior wooden crafts in all its forms.
+                  </span>
                 </p>
                 <div className="w-20 h-1 bg-yellow-400 my-8"></div>
                 <p className="text-gray-300 leading-relaxed text-center">
-                  This massive success was due to the commitment towards excellence in the height standards of delivering the best services & work fulfillments.
-                </p>
-                <p className="text-gray-300 mt-6 text-center">
-                  Our mission was focused on dedication throughout our experienced engineers & managers working continually to position Joint Circle as the leader in the pioneer construction & finishing projects.
+                  At Joint Circle Company, we are dedicated to pushing the boundaries of what is possible,
+                  delivering exceptional projects that drive progress and elevate standards.
                 </p>
                 <p className="text-yellow-400 font-semibold mt-6 text-center text-lg">
-                  Partner with us and be part of our journey as we build a brighter, more sustainable future – one landmark at a time.
+                  Partner with us and be part of our journey as we build a brighter, more sustainable future - one landmark at a time.
                 </p>
               </div>
             </div>
