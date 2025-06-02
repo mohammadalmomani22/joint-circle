@@ -1194,7 +1194,7 @@ Warm regards, Sami AlSarraf Chairman Joint Circle Company
     
     <div className="border-t border-gray-700 mt-10 pt-6 text-center text-gray-400">
       <p className="text-sm">
-        © {new Date().getFullYear()} Joint Circle Co. for Trad. & Cont. W.L.L. All Rights Reserved.
+        © {new Date().getFullYear()} Joint Circle Co. All Rights Reserved.
       </p>
       <p className="text-xs mt-2 text-gray-500">
         Designed & Developed by Ghost Technologies
