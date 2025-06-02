@@ -860,25 +860,26 @@ Warm regards, Sami AlSarraf Chairman Joint Circle Company
             </p>
           </div>
           
-          {/* Leadership Statement - Moved to here from Certificates section */}
+          {/* Leadership Statement*/}
           <div className="max-w-4xl mx-auto bg-neutral-800 rounded-2xl overflow-hidden shadow-2xl mb-16">
             <div className="p-8 md:p-12">
               <div className="flex flex-col items-center">
                 <div className="w-20 h-1 bg-yellow-400 mb-8"></div>
-                <p className="text-lg text-gray-300 leading-relaxed text-center italic">
-                  Under the expert guidance of{' '}
-                  <span className="text-yellow-400 font-semibold">Mr. Fadi Nasr</span> as partner,
-                  <span className="block mt-4">
-                    our company specialises in delivering high-quality services across diverse domains, including aluminum works, raised flooring systems, and space frame structures, in addition to the manufacture of interior wooden crafts in all its forms.
-                  </span>
+                <p className="text-lg text-gray-300 leading-relaxed text-center">
+                  Under the leadership of{' '}
+                  <span className="text-yellow-400 font-semibold">Eng. Ahmad Alam</span> and{' '}
+                  <span className="text-yellow-400 font-semibold">Eng. Sami Al Sarraf</span>,
+                  the Joint Circle continues its magnificent success and effectively achieves the classification of <span className="text-yellow-400 font-semibold">"GRADE A"</span> by the Kuwaiti Municipality.
                 </p>
                 <div className="w-20 h-1 bg-yellow-400 my-8"></div>
                 <p className="text-gray-300 leading-relaxed text-center">
-                  At Joint Circle Company, we are dedicated to pushing the boundaries of what is possible,
-                  delivering exceptional projects that drive progress and elevate standards.
+                  This massive success was due to the commitment towards excellence in the height standards of delivering the best services & work fulfillments.
+                </p>
+                <p className="text-gray-300 mt-6 text-center">
+                  Our mission was focused on dedication throughout our experienced engineers & managers working continually to position Joint Circle as the leader in the pioneer construction & finishing projects.
                 </p>
                 <p className="text-yellow-400 font-semibold mt-6 text-center text-lg">
-                  Partner with us and be part of our journey as we build a brighter, more sustainable future - one landmark at a time.
+                  Partner with us and be part of our journey as we build a brighter, more sustainable future – one landmark at a time.
                 </p>
               </div>
             </div>
@@ -1081,52 +1082,102 @@ Warm regards, Sami AlSarraf Chairman Joint Circle Company
 
       {/* FOOTER */}
       <footer className="bg-neutral-800 text-white py-12">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="grid md:grid-cols-3 gap-8">
-            <div>
-              <img
-                src="./images/company-logo-white.png"
-                alt="Joint Circle Company"
-                className="h-36 w-auto mb-4 transform transition-all duration-500 hover:scale-110 hover:rotate-2"
-              />
-              <p className="text-gray-400">
-                Leading provider of infrastructure design and development solutions.
-              </p>
-            </div>
-            <div>
-              <h4 className="text-lg font-bold mb-4">Quick Links</h4>
-              <div className="grid grid-cols-2 gap-4">
-                {navLinks.slice(0, Math.ceil(navLinks.length / 2)).map((item) => (
-                  <a
-                    key={item.name}
-                    href={`#${item.section}`}
-                    className="text-gray-400 hover:text-yellow-400 transition-colors duration-300"
-                  >
-                    {item.name}
-                  </a>
-                ))}
-              </div>
-            </div>
-            <div>
-              <h4 className="text-lg font-bold mb-4">More Links</h4>
-              <div className="grid grid-cols-2 gap-4">
-                {navLinks.slice(Math.ceil(navLinks.length / 2)).map((item) => (
-                  <a
-                    key={item.name}
-                    href={`#${item.section}`}
-                    className="text-gray-400 hover:text-yellow-400 transition-colors duration-300"
-                  >
-                    {item.name}
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
-          <div className="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
-            <p>&copy; {new Date().getFullYear()} Joint Circle. Powerd by Ghost.</p>
-          </div>
+  <div className="max-w-7xl mx-auto px-4">
+    <div className="grid md:grid-cols-4 gap-8">
+      {/* Company Info */}
+      <div className="md:col-span-1">
+        <img
+          src="./images/company-logo-white.png"
+          alt="Joint Circle Company"
+          className="h-24 w-auto mb-4 transform transition-all duration-500 hover:scale-105"
+        />
+        <p className="text-gray-400 mb-4">
+          Leading provider of infrastructure design and development solutions since 1978.
+        </p>
+        <div className="flex space-x-4 mt-4">
+          <a href="#" className="text-gray-400 hover:text-yellow-400 transition-colors duration-300">
+            <Facebook size={18} />
+          </a>
+          <a href="#" className="text-gray-400 hover:text-yellow-400 transition-colors duration-300">
+            <Instagram size={18} />
+          </a>
+          <a href="#" className="text-gray-400 hover:text-yellow-400 transition-colors duration-300">
+            <Twitter size={18} />
+          </a>
+          <a href="#" className="text-gray-400 hover:text-yellow-400 transition-colors duration-300">
+            <Linkedin size={18} />
+          </a>
         </div>
-      </footer>
+      </div>
+      
+      {/* Quick Links */}
+      <div className="md:col-span-1">
+        <h4 className="text-lg font-bold mb-4 text-white">Quick Links</h4>
+        <ul className="space-y-2">
+          {navLinks.slice(0, 3).map(item => (
+            <li key={item.name}>
+              <a
+                href={`#${item.section}`}
+                className="text-gray-400 hover:text-yellow-400 transition-colors duration-300 flex items-center"
+              >
+                <ChevronRight size={14} className="mr-2" />
+                {item.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+      
+      {/* More Links */}
+      <div className="md:col-span-1">
+        <h4 className="text-lg font-bold mb-4 text-white">Our Services</h4>
+        <ul className="space-y-2">
+          {navLinks.slice(3).map(item => (
+            <li key={item.name}>
+              <a
+                href={`#${item.section}`}
+                className="text-gray-400 hover:text-yellow-400 transition-colors duration-300 flex items-center"
+              >
+                <ChevronRight size={14} className="mr-2" />
+                {item.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+      
+      {/* Contact Info */}
+      <div className="md:col-span-1">
+        <h4 className="text-lg font-bold mb-4 text-white">Contact Us</h4>
+        <ul className="space-y-3">
+          <li className="flex items-start">
+            <MapPin className="text-yellow-400 w-5 h-5 mr-3 mt-1 flex-shrink-0" />
+            <span className="text-gray-400">
+              Farwaniya, Block 1, Ali Aldowaila Street, Al Jary Center, Floor 5
+            </span>
+          </li>
+          <li className="flex items-center">
+            <Phone className="text-yellow-400 w-5 h-5 mr-3 flex-shrink-0" />
+            <span className="text-gray-400">(+965) 2473 4419</span>
+          </li>
+          <li className="flex items-center">
+            <Mail className="text-yellow-400 w-5 h-5 mr-3 flex-shrink-0" />
+            <span className="text-gray-400">admin@joint-circle.com</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    <div className="border-t border-gray-700 mt-10 pt-6 text-center text-gray-400">
+      <p className="text-sm">
+        © {new Date().getFullYear()} Joint Circle Co. for Trad. & Cont. W.L.L. All Rights Reserved.
+      </p>
+      <p className="text-xs mt-2 text-gray-500">
+        Designed & Developed by Ghost Technologies
+      </p>
+    </div>
+  </div>
+</footer>
 
       {/* ANIMATION STYLES - Add transition for navbar */}
       <style>{`
